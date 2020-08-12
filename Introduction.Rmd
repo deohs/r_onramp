@@ -1,0 +1,307 @@
+---
+title: "DRAFT Introduction to R & Rstudio"
+author: "Brian High, Nancy Carmona & Chris Zuidema"
+date: "![CC BY-SA 4.0](images/cc_by-sa_4.png)"
+output:
+  ioslides_presentation:
+    fig_caption: yes
+    fig_height: 3
+    fig_retina: 1
+    fig_width: 5
+    keep_md: yes
+    logo: images/logo_128.png
+    smaller: yes
+---
+
+```{r set_knitr_options, echo=FALSE, message=FALSE, warning=FALSE}
+suppressMessages(library(knitr))
+opts_chunk$set(tidy=FALSE, cache=TRUE, echo=TRUE, message=FALSE)
+```
+
+## Learning Objectives
+
+* What R is (and isn't)
+* Why R is so popular
+* What RStudio is and isn't
+* Reasons to use RStudio
+* How to use RStudio
+
+
+## What is R?
+
+* R is a cross-platform software **_application_** for data analysis and visualization
+* R is **_free_** to use, **_free_** to share, and **_free_** to modify
+* R is a programming **_language_** with over 10,000 user-contributed packages
+* R is an open source and **_community_**-driven software development **_project_**
+
+## What R Isn't
+
+* R is not a point-and-click software application (though some are available for R)
+* R is not a proprietary commercial product (though some do sell it)
+* R is not something you can master in a day (or a week, or a month)
+
+## Why R is so popular
+
+* It is free
+* Support from a very helpful community of thousands of users
+* Available code or packages which are only available in R
+* Ability to generate quality graphics for publication
+* Supports data analysis "best practices"
+* End-to-end solution for reproducible data analysis
+* Capable of handling "Big Data"
+
+
+## What RStudio is and isn't
+
+### RStudio is:
+
+* Created by a commercial organization also called "RStudio"
+* A full-featured, cross-platform, open source application for working with R
+* A graphical user interface (GUI)and integrated development environment (IDE)
+
+### RStudio isn't:
+
+* A point-and-click GUI application like a spreadsheet program
+* A text-only command-line utility
+* An R language interpreter
+
+## Why use RStudio?
+
+* It is a user-friendly way to use R
+    - The interface feels familiar to many people (similar to other IDEs)
+    - It integrates operations common to many data analysis workflows
+* You can use it for free on most computer systems
+* It is very popular, so your collaborators may already be using it
+* Very few alternatives (R-GUI, JGR, Visual Studio) are as full-featured
+* It performs well, is designed well, and is backed by a respected company
+
+We are going to gear our instruction towards the use of RStudio and will not be supporting others.
+
+## Ways to use RStudio
+
+### DEOHS Plasmid server accessed through a web browser
+
+* Link: [https://plasmid.deohs.washington.edu](https://plasmid.deohs.washington.edu)
+* Free for DEOHS affiliates to use 
+* Requires UW NetID and DEOHS account
+* UW Campus only (or through "VPN")
+* Easily access your departmental storage (network "drives")
+* EHIT manages installation and maintenence, ensuring it works and is the same for all users, making it easier to learn and teach 
+* This onramp is geared towards RStudio on Plasmid
+
+### Download and run locally
+
+* The RStudio application is available for free on the [internet](https://www.rstudio.com/products/rstudio/download/)
+* We will not support local installation or use during this introductory onramp, 
+but some instructions are at the end of this presentation.
+
+
+## Accessing RStudio on the DEOHS Plasmid Server
+
+* First, you'll need to sign into the UW network with the "Big-IP Edge Client"
+
+![](images/big_ip_edge_client.png)
+
+
+* Next, sign into DEOHS Plasmid: [https://plasmid.deohs.washington.edu](https://plasmid.deohs.washington.edu)
+
+
+## How to use RStudio
+
+Welcome to RStudio! Next, we'll provide an orientation to: 
+
+* Screen/panel layout
+    - panes
+    - tabs
+    - menus
+    - buttons
+* Customization and Global options
+* File management
+
+
+    
+## Orientation: Default Pane Locations
+
+1. If there is a file open, it will appear in the upper-left ("Source") pane
+2. The session information will be found in the upper-right ("Environment") pane
+3. The "Viewer" pane with tabs for files, Plots, Help, etc. is in the 
+   lower-right
+4. The interactive R prompt ("Console") will appear in the left or lower-left pane
+
+![](images/rstudiopanes630x450.png)
+
+## Orientation: Source Pane
+
+The "Source" pane is where files will display when opened and where data grids
+will display.
+
+The reason it is called the "Source" pane is because it is primarily used to
+edit source code such as R scripts as text files. 
+
+When text files are opened in RStudio, the tab they are displayed in is a 
+full-featured text editor with syntax highlighting, search-and-replace and
+many other features.
+
+* You can select highlighting for many programming languages in a pick list.
+* Editor and other options may be set under Tools -> Global Options.
+
+## Orientation: Environment Pane
+
+The "Environment" pane contains tabs for the "Environment" variables, the 
+command "History", and other content related to your current session or Project.
+
+The "Environment" variables are those data objects which are currently loaded
+into memory. 
+
+* A little bit of information about their structure and contents will be 
+  displayed here. 
+* You can click an item to view it in the "Source" pane, often as a grid.
+
+The "History" tab is for your command history. You can send commands from 
+your history to your Console tab in the Console pane or to the selected editor 
+tab in the Source pane.
+
+The "Git" tab will only show when you are working with a Project managed by
+the Git version control system. (More on this later.)
+
+## Orientation: Viewer Pane
+
+The "Viewer" pane is where you can view and manipulate:
+
+* Files
+* Plots
+* Packages
+* Help
+* Additional web content ("Viewer" tab)
+
+There is a tab for each of these.
+
+
+## The Help Tab in the Viewer Pane 
+
+![](images/help.png)
+
+
+
+## Orientation: Console Pane
+
+The Console is where you can type (or paste) commands at an interactive R prompt.
+
+The prompt will be found at the bottom of the Console tab of the Console pane.
+
+Code selected from the text editor in the Source pane or from the command history in the Environment pane can also be run here.
+
+There may be other tabs for additional program output in the Console pane. 
+
+For example, output from pressing the "Knit HTML" button will appear in a "R Markdown" tab in the Console pane.
+
+## How the Prompt works
+
+* The prompt waits for commands
+* You type a command at the prompt and press *Enter* (or *Return*)
+* R will parse your commands and try follow them
+* R will either show an error, show results, or silently complete the task
+* R will display the prompt with a `>` character (by default)
+* R will display a `+` prompt if it expects more from you than you provided
+* R will display output below the command, with `[#]` often preceeding data
+
+## How to use Prompt output
+
+R returns data by:
+
+* Showing data on the screen in the console
+* Saving data to a variable (in memory)
+* Saving data to a file (on your disk or the network)
+* Saving data to a database (either locally or over the network)
+
+Usually, you manipulate data in memory and then save it to a file or database when you are done working with it.
+
+While you could copy text results shown to the screen and paste them elsewhere, this method will be of limited use.
+
+
+## Orientation: Panes and Tabs
+
+Each pane has two grey buttons in the upper left which allow you to minimize or
+maximize the pane. Maximizing just increases the height, not the width.
+
+Each pane has one or more tabs which allow you to pick what you view in that
+pane.
+
+Some tabs have a grey "X" in the upper left corner of that tab that let's you
+close the tab.
+
+Some tabs offer a menu of buttons with text labels beneath the tab. These allow
+you to perform operations related to the contents of the tab. Some of the buttons are pick-lists.
+
+The "Files" tab offers a "breadcrumb" navigation feature under the row of buttons.
+
+## Orientation: Menus and Buttons
+
+The top-level application menus will have the same choices regardless of
+which pane you are using. 
+
+Some choices will be "greyed out" if they are not available for a particular 
+operation.
+
+The menus, buttons, and pick-lists in the panes will vary depending on the
+content of the pane and the context of the operation you are performing.
+
+There is a button with an icon of a broom (or brush). The text associated
+with this button is "Clear" or "Clear All". You can use it to clear the 
+contents of the tab.
+
+Some tabs offer a Search box with a magnifying glass icon. Tabs with this
+feature include the Environment, Files, Packages, and Help tabs.
+
+## Customization and Global Options
+
+You can customize many aspects of RStudio with the Tools -> Global Options
+menu choice.
+
+This opens a configuration settings window with navigation on the side.
+
+Here are some recommended settings:
+
+* Code -> (Editing) -> [x] Insert spaces for tab, Tab width 4
+    - ![](images/insert_spaces_for_tab.png)
+* Code -> (Display) -> [x] Show margin, Margin column 80
+    - ![](images/show_margin.png)
+
+These settings will help you write more readable code. (More on this later.)
+
+You may also wish to customize your pane layout in "Pane Layout".
+
+## File Management
+
+The Files tab of the Viewer pane is useful for file navigation and management.
+
+You can navigate to your files and move, copy, rename, and delete them. You can
+create new folders. 
+
+In RStudio on the Plasmid you will also upload and download files using this tab.
+
+The home drive for RStudio on Plasmid is your DEOHS H:// drive
+
+## 
+
+```{r child = 'images/questions.html'}
+```
+
+
+## How to install R and RStudio Desktop
+
+We will not be supporting local installations of R and RStudio during this introductory bootcamp. These instructions are here for reference if needed:
+
+1. [Download](https://cran.r-project.org/banner.shtml) the latest
+   **_installer_** version of **_R_** available for your operating system.
+     - Run the installer (usually by double-clicking on the installer's icon).
+     - Click through the installer's prompts accordingly. The defaults are       
+       usually fine.
+2. [Download](https://www.rstudio.com/products/rstudio/download/) the latest
+   **_installer_** version of **_RStudio Desktop_** available for your 
+   operating system.
+     - Run the installer (usually by double-clicking on the installer's icon).
+     - Click through the installer's prompts accordingly. The defaults are       
+       usually fine.
+3. You may remove the installers when you have confirmed that RStudio is 
+   installed correctly and launches without error.
