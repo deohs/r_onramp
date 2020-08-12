@@ -77,8 +77,8 @@ This is typically* done using `install.packages()`.
 RStudio uses the RStudio Comprehensive R Archive Network ("CRAN") mirror [https://cran.rstudio.com](https://cran.rstudio.com) by default, but other 
 repositories can be specified.
 
-```{r, eval=FALSE}
 
+```r
 # Example: install the "dplyr" package, using the default repository 
 install.packages("dplyr")
 ```
@@ -92,7 +92,8 @@ Note that the package name must be quoted.
 ## Load a package into memory
 
 Next, you need to load the package into memory (RAM), using `library()`.
-```{r, eval=FALSE}
+
+```r
 library(dplyr)
 ```
 
@@ -110,22 +111,23 @@ all of those parenthesis. Or you can use `search()`.
 
 Packages change, and sometimes you will want or need to upgrade (update) them by running the `update.packages()` command:
 
-```{r, eval=FALSE}
 
+```r
 # Example of package update
 update.packages("dplyr")
 ```
 
 You can upgrade all of your packages with:
 
-```{r, eval=FALSE}
+
+```r
 update.packages()
 ```
 
 To uninstall (remove) package, run:
 
-```{r, eval=FALSE}
 
+```r
 # example of removing a package
 remove.packages("dplyr")
 ```
@@ -142,8 +144,8 @@ the "base" R functions. Usually, *pacman's* syntax easier, or involves less typi
 Instead of running `install.packages()` and `library()`, for each package, you 
 can do it all with pacman.
 
-```{r, eval=FALSE}
 
+```r
 # install pacman the first time
 install.packages("pacman")
 
@@ -152,7 +154,6 @@ library(pacman)
 
 # then use the pacman function `p_load()` to load a list of packages
 p_load(dplyr, tidyr, stringr, ggplot2)
-
 ```
 
 That may not seem any better than `install.packages()` and `library()`, 
@@ -181,13 +182,15 @@ How do you save an R session?
 
 Example: Save your command history to the current folder (as `.Rhistory`):
 
-```{r, eval=FALSE}
+
+```r
 savehistory()
 ```
 
 Example: Save the workspace (data objects) to the current folder (as `.RData`):
 
-```{r, eval=FALSE}
+
+```r
 save.image()
 ```
 
@@ -229,7 +232,8 @@ This is a "binary" (opaque) file format -- it is not to be opened with a text ed
 
 You can save and load data objects to and from RData files like this:
 
-```{r, eval=FALSE}
+
+```r
 x <- 1
 y <- "a"
 save(x, y, file = "xy.RData")
@@ -243,20 +247,19 @@ unless you have a good reason to do otherwise.
 
 Writing to a CSV file:
 
-```{r, eval=FALSE}
 
+```r
 # Get an example dataset to work with (more on this later!)
 data("iris")
 
 # Example of writing the dataset to a csv file
 write.csv(iris, "iris.csv")
-
 ```
 
 Reading from a CSV file:
 
-```{r, eval=FALSE}
 
+```r
 # Example of reading a csv file
 myiris <- read.csv("iris.csv")
 ```
@@ -303,21 +306,19 @@ Go to: File -> New File -> R Script
 A new tab should open in your Source pane "Untitled1". Lets save it as "onramp_iris_script.R
 
 Next, we'll add some basic information using comments like our name, date and description
-```{r}
 
+```r
 # Joe Coder
 # Date: September 30, 2020
 # This script is an example of writing scripts in R using the iris dataset.
-
-
 ```
 
 ## Creating and Running R scripts
 
 Now, we can write executable code, commenting as we go to document what we're doing for ourselves and for others we share the code with.
 
-```{r}
 
+```r
 # load example data
 data(iris)
 
@@ -325,49 +326,86 @@ data(iris)
 head(iris)
 ```
 
+```
+##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          4.9         3.0          1.4         0.2  setosa
+## 3          4.7         3.2          1.3         0.2  setosa
+## 4          4.6         3.1          1.5         0.2  setosa
+## 5          5.0         3.6          1.4         0.2  setosa
+## 6          5.4         3.9          1.7         0.4  setosa
+```
+
 ## Creating and Running R scripts
 
 Next, we'll modify the dataframe. Let's add a variable that indicates where the samples were collected.
 
-```{r}
+
+```r
 # create a variable that indicates where the flowers were collected 
 iris$country <- "canada"
 
 # show the top of the dataframe
 head(iris)
+```
 
+```
+##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species country
+## 1          5.1         3.5          1.4         0.2  setosa  canada
+## 2          4.9         3.0          1.4         0.2  setosa  canada
+## 3          4.7         3.2          1.3         0.2  setosa  canada
+## 4          4.6         3.1          1.5         0.2  setosa  canada
+## 5          5.0         3.6          1.4         0.2  setosa  canada
+## 6          5.4         3.9          1.7         0.4  setosa  canada
 ```
 
 ## Creating and Running R scripts
 
 Let's calculate some important summary statistics and store them as variables to the environment
 
-```{r}
+
+```r
 # get the mean values for petal characteristics
 petal_length_avg <- mean(iris$Petal.Length)
 petal_length_avg
+```
 
+```
+## [1] 3.758
+```
+
+```r
 petal_width_avg <- mean(iris$Petal.Width)
 petal_width_avg
+```
 
+```
+## [1] 1.199333
+```
+
+```r
 # calculate the correlation between between petal length and width
 petal_cor <- cor(x = iris$Petal.Length, y = iris$Petal.Width, method = "pearson")
 petal_cor
+```
 
+```
+## [1] 0.9628654
 ```
 
 ## Creating and Running R scripts
 
 Lastly, we can plot our findings.
 
-```{r}
 
+```r
 # plot the petal legths versus widths
 p <- plot(x = iris$Petal.Length, y = iris$Petal.Width, 
           xlab = "Petal Length (cm)", 
           ylab = "Petal Width (cm)")
-
 ```
+
+![](r_packages_sessions_scripts_files/figure-html/unnamed-chunk-16-1.png)<!-- -->
 
 
 ## Creating and Running R scripts
@@ -382,5 +420,18 @@ To run a multiple lines, highlight the desired lines and press "Shift" + "Enter"
 
 ## 
 
-```{r child = 'images/questions.html'}
-```
+
+<pre style="color: indigo; background: linear-gradient(to right, gold, rgba(255,0,0,0)); padding-top: 50px; padding-bottom: 50px;">
+                                                                                        
+                                                  ,,                                    
+  .g8""8q.                                 mm     db                           ,M"""b.  
+.dP'    `YM.                               MM                                  89'  `Mg 
+dM'      `MM `7MM  `7MM  .gP"Ya  ,pP"Ybd mmMMmm `7MM  ,pW"Wq.`7MMpMMMb.  ,pP"Ybd    ,M9 
+MM        MM   MM    MM ,M'   Yb 8I   `"   MM     MM 6W'   `Wb MM    MM  8I   `" mMMY'  
+MM.      ,MP   MM    MM 8M"""""" `YMMMa.   MM     MM 8M     M8 MM    MM  `YMMMa. MM     
+`Mb.    ,dP'   MM    MM YM.    , L.   I8   MM     MM YA.   ,A9 MM    MM  L.   I8 ,,     
+  `"bmmd"'     `Mbod"YML.`Mbmmd' M9mmmP'   `Mbmo.JMML.`Ybmd9'.JMML  JMML.M9mmmP' db     
+      MMb                                                                               
+       `bood'
+</pre>
+<!-- http://patorjk.com/software/taag/#p=display&f=Georgia11&t=Questions%3F%0A -->

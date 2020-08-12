@@ -14,10 +14,7 @@ output:
     smaller: yes
 ---
 
-```{r set_knitr_options, echo=FALSE, message=FALSE, warning=FALSE}
-suppressMessages(library(knitr))
-opts_chunk$set(tidy=FALSE, cache=TRUE, echo=TRUE, message=FALSE)
-```
+
 
 
 ## Learning Objectives
@@ -84,8 +81,8 @@ RStudio.
 
 You need the R packages *htmltools*, *rmarkdown* and *knitr*.
 
-```{r, eval=FALSE}
 
+```r
 install.packages(c("htmltools", "rmarkdown", "knitr"), dependencies = TRUE)
 ```
 
@@ -146,10 +143,7 @@ Before we get into data wrangling, let's look at the [Tidyverse](https://www.tid
 "The tidyverse is an opinionated collection of R packages designed for data science. 
 All packages share an underlying design philosophy, grammar, and data structures."
 
-```{r eval=FALSE, include=FALSE}
-# install all of the tidyverse packages to start (this might take a little time)
-install.packages("tidyverse")
-```
+
 
 There are tidyverse packages for data wrangling, modeling, and visualization.
 
@@ -167,35 +161,55 @@ Common functions include:
 * Grouping data by a variable 
 
 
-```{r}
+
+```r
 # load pacman, installing if needed
 if(!require("pacman")){install.packages("pacman", repos="http://cran.r-project.org")}
 
 # load packages as needed (dplyr for wrangling; ggplo2 for data visualization)
 pacman::p_load(dplyr, ggplot2)
-
 ```
 
 ## Example Dataset `airquality`
 
 R has many built-in datasets - let's get a dataset on air quality from New York in 1973. 
 
-```{r}
 
+```r
 # load the "airquality" dataset into the environment
 data(airquality)
 
 ## explore its attributes
 # show the class of the dataset
 class(airquality)
+```
 
+```
+## [1] "data.frame"
+```
+
+```r
 # displays the first several rows of data
 head(airquality)
+```
 
+```
+##   Ozone Solar.R Wind Temp Month Day
+## 1    41     190  7.4   67     5   1
+## 2    36     118  8.0   72     5   2
+## 3    12     149 12.6   74     5   3
+## 4    18     313 11.5   62     5   4
+## 5    NA      NA 14.3   56     5   5
+## 6    28      NA 14.9   66     5   6
+```
+
+```r
 # display the dimensions (153 rows and 6 columns of the dataset)
 dim(airquality)
+```
 
-
+```
+## [1] 153   6
 ```
 
 
@@ -205,21 +219,44 @@ Common data tasks are simplified with dplyr, once you learn the verbs.
 
 Let's add a variable to airquality using `mutate()`
 
-```{r}
 
+```r
 # Add the year of the measurements and look at the first 10 rows
 head(mutate(airquality, Year = 1973), n = 10)
+```
 
+```
+##    Ozone Solar.R Wind Temp Month Day Year
+## 1     41     190  7.4   67     5   1 1973
+## 2     36     118  8.0   72     5   2 1973
+## 3     12     149 12.6   74     5   3 1973
+## 4     18     313 11.5   62     5   4 1973
+## 5     NA      NA 14.3   56     5   5 1973
+## 6     28      NA 14.9   66     5   6 1973
+## 7     23     299  8.6   65     5   7 1973
+## 8     19      99 13.8   59     5   8 1973
+## 9      8      19 20.1   61     5   9 1973
+## 10    NA     194  8.6   69     5  10 1973
 ```
 
 ## Wrangle *airquality*
 
 Let's take a look at the new `airquality` dataframe.
 
-```{r}
+
+```r
 # show the dataframe, looking at the first few rows
 head(airquality)
+```
 
+```
+##   Ozone Solar.R Wind Temp Month Day
+## 1    41     190  7.4   67     5   1
+## 2    36     118  8.0   72     5   2
+## 3    12     149 12.6   74     5   3
+## 4    18     313 11.5   62     5   4
+## 5    NA      NA 14.3   56     5   5
+## 6    28      NA 14.9   66     5   6
 ```
 
 What happened here? Where did the `Year` column go? In our previous step, a dataframe printed to the console with the new `Year` variable, but it did not change the `airquality` object in the environment.
@@ -230,12 +267,23 @@ We performed a task on the original `airquality` object, but since we did not ma
 
 Now we'll add `Year` and make a new assignment 
 
-```{r}
+
+```r
 # Add year to the dataframe
 airquality <- mutate(airquality, Year = 1973)
 
 # take a look!
 head(airquality)
+```
+
+```
+##   Ozone Solar.R Wind Temp Month Day Year
+## 1    41     190  7.4   67     5   1 1973
+## 2    36     118  8.0   72     5   2 1973
+## 3    12     149 12.6   74     5   3 1973
+## 4    18     313 11.5   62     5   4 1973
+## 5    NA      NA 14.3   56     5   5 1973
+## 6    28      NA 14.9   66     5   6 1973
 ```
 
 Better! 
@@ -244,24 +292,51 @@ Better!
 
 Now let's create a date column. We'll create a character string first to break the steps down.
 
-```{r}
+
+```r
 #make a character variable, then a date variable
 airquality <- mutate(airquality, Date_char = paste(Year, Month, Day, sep = "-"))
 airquality <- mutate(airquality, Date = as.Date(Date_char, format = "%Y-%m-%d"))
 
 head(airquality)
+```
 
+```
+##   Ozone Solar.R Wind Temp Month Day Year Date_char       Date
+## 1    41     190  7.4   67     5   1 1973  1973-5-1 1973-05-01
+## 2    36     118  8.0   72     5   2 1973  1973-5-2 1973-05-02
+## 3    12     149 12.6   74     5   3 1973  1973-5-3 1973-05-03
+## 4    18     313 11.5   62     5   4 1973  1973-5-4 1973-05-04
+## 5    NA      NA 14.3   56     5   5 1973  1973-5-5 1973-05-05
+## 6    28      NA 14.9   66     5   6 1973  1973-5-6 1973-05-06
+```
+
+```r
 # check the class
 class(airquality$Date)
+```
 
+```
+## [1] "Date"
 ```
 
 ## Wrangle *airquality*
 
 Say were only interested in data from May, let's filter our data now. The filter function takes a logical condition, requiring `==` which is different than `=` when we are assigning variables within functions.
-```{r}
+
+```r
 airquality <- filter(airquality, Month == 5)
 head(airquality)
+```
+
+```
+##   Ozone Solar.R Wind Temp Month Day Year Date_char       Date
+## 1    41     190  7.4   67     5   1 1973  1973-5-1 1973-05-01
+## 2    36     118  8.0   72     5   2 1973  1973-5-2 1973-05-02
+## 3    12     149 12.6   74     5   3 1973  1973-5-3 1973-05-03
+## 4    18     313 11.5   62     5   4 1973  1973-5-4 1973-05-04
+## 5    NA      NA 14.3   56     5   5 1973  1973-5-5 1973-05-05
+## 6    28      NA 14.9   66     5   6 1973  1973-5-6 1973-05-06
 ```
 
 Great, that's what we were expecting.
@@ -270,8 +345,8 @@ Great, that's what we were expecting.
 
 Next, let's consider the pipe operator `%>%` which will help us streamline these operations so it is clear and more succinct. The pipe operator feeds the output of one function into the input of the next, avoiding having to make multiple assignments.
 
-```{r}
 
+```r
 # reload dataset to start fresh
 data(airquality)
 
@@ -294,18 +369,28 @@ airquality_may <- airquality %>%
 
 Let's take a look.
 
-```{r}
 
+```r
 # show the dataframe
 head(airquality_may)
+```
+
+```
+##   Ozone Temp       Date
+## 1    41   67 1973-05-01
+## 2    36   72 1973-05-02
+## 3    12   74 1973-05-03
+## 4    18   62 1973-05-04
+## 5    NA   56 1973-05-05
+## 6    28   66 1973-05-06
 ```
 
 ## Wrangle *airquality*
 
 What if we're interested in the average ozone and temperature by month? Would we have to repeat this process for each month? dplyr has easy and powerful functions to perform data wrangling tasks on groups: `group_by()` and `summarise()`
 
-```{r}
 
+```r
 # average by month, note the argument `na.rm = TRUE` is required to ignore the 
 # NA values. Otherwise NA would be returned 
 airquality_by_month <- airquality %>% 
@@ -316,15 +401,25 @@ airquality_by_month <- airquality %>%
   # calculate average ozone concentration and temperature
   summarise(Ozone_avg = mean(Ozone, na.rm = TRUE), 
             Temp_avg = mean(Temp, na.rm = TRUE))
-
 ```
 
 ## Wrangle *airquality*
 
-```{r}
+
+```r
 # show new dataframe
 airquality_by_month
+```
 
+```
+## # A tibble: 5 x 3
+##   Month Ozone_avg Temp_avg
+##   <int>     <dbl>    <dbl>
+## 1     5      23.6     65.5
+## 2     6      29.4     79.1
+## 3     7      59.1     83.9
+## 4     8      60.0     84.0
+## 5     9      31.4     76.9
 ```
 
 
@@ -332,8 +427,8 @@ airquality_by_month
 
 Now let's make a simple plot so we have an example for our rendered document. The goal here is just to introduce the main plotting tool of the Tidyverse - we'll be covering *ggplot2* in more detail in the future.
 
-```{r}
 
+```r
 # initialize ggplot
 p <- ggplot(data = airquality_may) + 
   
@@ -345,15 +440,17 @@ p <- ggplot(data = airquality_may) +
   
   # choose theme
   theme_classic()
-  
 ```
 
 ## Make a plot using *ggplot2*
 
-```{r}
+
+```r
 # show plot
 p
 ```
+
+![](r_intro_tidyverse_literate_programming_files/figure-html/unnamed-chunk-15-1.png)<!-- -->
 
 
 ## Render Markdown Document
@@ -365,8 +462,21 @@ Next, let's render the document using the "Knit" button.
 
 ## 
 
-```{r child = 'images/questions.html'}
-```
+
+<pre style="color: indigo; background: linear-gradient(to right, gold, rgba(255,0,0,0)); padding-top: 50px; padding-bottom: 50px;">
+                                                                                        
+                                                  ,,                                    
+  .g8""8q.                                 mm     db                           ,M"""b.  
+.dP'    `YM.                               MM                                  89'  `Mg 
+dM'      `MM `7MM  `7MM  .gP"Ya  ,pP"Ybd mmMMmm `7MM  ,pW"Wq.`7MMpMMMb.  ,pP"Ybd    ,M9 
+MM        MM   MM    MM ,M'   Yb 8I   `"   MM     MM 6W'   `Wb MM    MM  8I   `" mMMY'  
+MM.      ,MP   MM    MM 8M"""""" `YMMMa.   MM     MM 8M     M8 MM    MM  `YMMMa. MM     
+`Mb.    ,dP'   MM    MM YM.    , L.   I8   MM     MM YA.   ,A9 MM    MM  L.   I8 ,,     
+  `"bmmd"'     `Mbod"YML.`Mbmmd' M9mmmP'   `Mbmo.JMML.`Ybmd9'.JMML  JMML.M9mmmP' db     
+      MMb                                                                               
+       `bood'
+</pre>
+<!-- http://patorjk.com/software/taag/#p=display&f=Georgia11&t=Questions%3F%0A -->
 
 
 
