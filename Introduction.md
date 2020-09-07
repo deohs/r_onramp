@@ -54,13 +54,13 @@ output:
 
 * Created by a commercial organization also called "RStudio"
 * A full-featured, cross-platform, open source application for working with R
-* A graphical user interface (GUI)and integrated development environment (IDE)
+* A graphical user interface (GUI) and integrated development environment (IDE)
 
 ### RStudio isn't:
 
-* A point-and-click GUI application like a spreadsheet program
-* A text-only command-line utility
-* An R language interpreter
+* A point-and-click spreadsheet app (like Excel) or plotting app (like Tableau)
+* A text-only command-line utility (as it has a graphical interface)
+* An R language interpreter (as the R application is installed separately)
 
 ## Why use RStudio?
 
@@ -72,35 +72,41 @@ output:
 * Very few alternatives (R-GUI, JGR, Visual Studio) are as full-featured
 * It performs well, is designed well, and is backed by a respected company
 
-We are going to gear our instruction towards the use of RStudio and will not be supporting others.
+We are going to gear our instruction towards the use of RStudio and will not 
+be covering others.
 
 ## Ways to use RStudio
 
-### DEOHS Plasmid server accessed through a web browser
+### RStudio Server accessed through a web browser
 
+* DEOHS runs RStudio Server on Plasmid, a Linux virtual machine
 * Link: [https://plasmid.deohs.washington.edu](https://plasmid.deohs.washington.edu)
-* Free for DEOHS affiliates to use 
+* Free for DEOHS affiliates (students, staff, faculty, postdocs, etc.) to use 
 * Requires UW NetID and DEOHS account
-* UW Campus only (or through "VPN")
-* Easily access your departmental storage (network "drives")
-* EHIT manages installation and maintenence, ensuring it works and is the same for all users, making it easier to learn and teach 
-* This onramp is geared towards RStudio on Plasmid
+* UW Campus only (or remotely through [Husky OnNet VPN](https://itconnect.uw.edu/connect/uw-networks/about-husky-onnet/))
+* Easily access your departmental storage (i.e., network "drives")
+* Easier to learn and teach on because it's centrally managed by EHIT 
+* This "onramp" is geared towards using RStudio Server on Plasmid
 
 ### Download and run locally
 
-* The RStudio application is available for free on the [internet](https://www.rstudio.com/products/rstudio/download/)
-* We will not support local installation or use during this introductory onramp, 
+* The RStudio Desktop application is available for free on the [internet](https://www.rstudio.com/products/rstudio/download/)
+* We will not focus on local installation or use during this introductory onramp, 
 but some instructions are at the end of this presentation.
 
 
-## Accessing RStudio on the DEOHS Plasmid Server
+## Accessing the DEOHS Plasmid Server (from off-canpus)
 
-* First, you'll need to sign into the UW network with the "Big-IP Edge Client"
+* First, make sure the [Husky OnNet VPN](https://itconnect.uw.edu/connect/uw-networks/about-husky-onnet/) software installed on your computer
+* Next, launch the VPN app ("Big-IP Edge Client") and sign into the UW network
 
 ![](images/big_ip_edge_client.png)
 
+## Login to the DEOHS Plasmid Server
 
-* Next, sign into DEOHS Plasmid: [https://plasmid.deohs.washington.edu](https://plasmid.deohs.washington.edu)
+* Next (whether on-campus or not) use this link to sign into DEOHS Plasmid: [https://plasmid.deohs.washington.edu](https://plasmid.deohs.washington.edu)
+* If you see a UW Weblogin prompt, log in using your UW NetID and password
+* At the RStudio Server login screen, use your NetID and DEOHS password
 
 
 ## How to use RStudio
@@ -115,8 +121,6 @@ Welcome to RStudio! Next, we'll provide an orientation to:
 * Customization and Global options
 * File management
 
-
-    
 ## Orientation: Default Pane Locations
 
 1. If there is a file open, it will appear in the upper-left ("Source") pane
@@ -133,13 +137,13 @@ The "Source" pane is where files will display when opened and where data grids
 will display.
 
 The reason it is called the "Source" pane is because it is primarily used to
-edit source code such as R scripts as text files. 
+edit source code such as R scripts and other text files. 
 
 When text files are opened in RStudio, the tab they are displayed in is a 
 full-featured text editor with syntax highlighting, search-and-replace and
 many other features.
 
-* You can select highlighting for many programming languages in a pick list.
+* You can select syntax highlighting for many programming languages in a pick list.
 * Editor and other options may be set under Tools -> Global Options.
 
 ## Orientation: Environment Pane
@@ -152,7 +156,7 @@ into memory.
 
 * A little bit of information about their structure and contents will be 
   displayed here. 
-* You can click an item to view it in the "Source" pane, often as a grid.
+* You can click an item to view it, often as a grid in the "Source" pane
 
 The "History" tab is for your command history. You can send commands from 
 your history to your Console tab in the Console pane or to the selected editor 
@@ -190,21 +194,24 @@ Code selected from the text editor in the Source pane or from the command histor
 
 There may be other tabs for additional program output in the Console pane. 
 
-For example, output from pressing the "Knit HTML" button will appear in a "R Markdown" tab in the Console pane.
+For example, output from pressing the "Knit" button will appear in a "R Markdown" tab in the Console pane.
 
-## How the Prompt works
+There is also a Terminal tab for interacting with the command "shell" of your operating system, such as "Bash"
 
-* The prompt waits for commands
-* You type a command at the prompt and press *Enter* (or *Return*)
-* R will parse your commands and try follow them
+
+## How the Console prompt works
+
+* The prompt waits for R commands
+* You type a, R command at the prompt and press *Enter* (or *Return*)
+* R will parse your commands and try execute them
 * R will either show an error, show results, or silently complete the task
 * R will display the prompt with a `>` character (by default)
 * R will display a `+` prompt if it expects more from you than you provided
 * R will display output below the command, with `[#]` often preceeding data
 
-## How to use Prompt output
+## How to use Console output
 
-R returns data by:
+R returns data results from your commands by:
 
 * Showing data on the screen in the console
 * Saving data to a variable (in memory)
@@ -230,6 +237,8 @@ close the tab.
 Some tabs offer a menu of buttons with text labels beneath the tab. These allow
 you to perform operations related to the contents of the tab. Some of the buttons are pick-lists.
 
+Some tabs offer "refresh", "clear" and three dot (...) menu buttons.
+
 The "Files" tab offers a "breadcrumb" navigation feature under the row of buttons.
 
 ## Orientation: Menus and Buttons
@@ -243,7 +252,7 @@ operation.
 The menus, buttons, and pick-lists in the panes will vary depending on the
 content of the pane and the context of the operation you are performing.
 
-There is a button with an icon of a broom (or brush). The text associated
+There is a button with an icon of a whisk broom (or brush). The text associated
 with this button is "Clear" or "Clear All". You can use it to clear the 
 contents of the tab.
 
@@ -259,7 +268,7 @@ This opens a configuration settings window with navigation on the side.
 
 Here are some recommended settings:
 
-* Code -> (Editing) -> [x] Insert spaces for tab, Tab width 4
+* Code -> (Editing) -> [x] Insert spaces for tab, Tab width 2
     - ![](images/insert_spaces_for_tab.png)
 * Code -> (Display) -> [x] Show margin, Margin column 80
     - ![](images/show_margin.png)
@@ -277,7 +286,11 @@ create new folders.
 
 In RStudio on the Plasmid you will also upload and download files using this tab.
 
-The home drive for RStudio on Plasmid is your DEOHS H:// drive
+The home (~) folder for RStudio on Plasmid is your DEOHS H:// drive
+
+The three-dot (...) button on the Files tab prompts for a custom file path.
+
+RStudio offers a "Project" feature to make working with files easier.
 
 ## 
 
@@ -300,7 +313,7 @@ MM.      ,MP   MM    MM 8M"""""" `YMMMa.   MM     MM 8M     M8 MM    MM  `YMMMa.
 
 ## How to install R and RStudio Desktop
 
-We will not be supporting local installations of R and RStudio during this introductory bootcamp. These instructions are here for reference if needed:
+We will not be spending time on local installations of R and RStudio during this introductory onramp. These instructions are here for reference if needed:
 
 1. [Download](https://cran.r-project.org/banner.shtml) the latest
    **_installer_** version of **_R_** available for your operating system.
