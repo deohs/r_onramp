@@ -16,18 +16,16 @@ output:
 
 
 
-
 ## Learning Objectives
 
 You will learn:
 
 * What literate programming is and why it's important 
 * How to use R Markdown for literate programming
-* What the tidyverse is
+* What the "tidyverse" is
 * What data "wrangling" is
 * Packages and functions used to tidy and wrangle data in R
 * How to tidy and wrangle data with R
-
 
 ## Reproducibility 
 
@@ -44,7 +42,8 @@ We should always be able to go from raw data to final results at any time ...
 *and always get the same results* from the same data and the same analysis*.
 
 `*` Even if you are doing modeling with randomly-generated values, you can set
-the *seed* to produce the same values each time you run the analysis.
+the *seed* to produce the same values each time you run the analysis. There are
+situations where you may encounter small rounding differences, however.
 
 ## Literate Programming
 
@@ -60,11 +59,10 @@ verify the results (including plots and figures).
 
 There are two main platforms for literate programming:
 
-* **_Python_**: Jupyter Notebook (a future topic!)
-* **_R_**: R Markdown and *knitr* (today's focus)
+* **_Python_** and other languages: Jupyter Notebook (a future topic!)
+* **_R_**: R Markdown with *knitr* (today's focus) and [R Notebooks](https://blog.rstudio.com/2016/10/05/r-notebooks)
 
 Both platforms can be used with other programming languages or a mix of them.
-
 
 ## R Markdown and *knitr*
 
@@ -81,11 +79,15 @@ RStudio.
 
 You need the R packages *htmltools*, *rmarkdown* and *knitr*.
 
+The first time to try to "knit" in RStudio, you will likely be prompted to 
+install these packages. If so, go ahead and install them as prompted.
+
+Otherwise, you can install them manually:
+
 
 ```r
 install.packages(c("htmltools", "rmarkdown", "knitr"), dependencies = TRUE)
 ```
-
 
 ## R Markdown Syntax
 
@@ -96,7 +98,6 @@ example:
 ![](images/rmarkdown_document.png)
 
 ## R Markdown Cheat Sheet
-(More on R "cheat sheets" later)
 
 ![[R Markdown cheat sheet](https://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf)](images/cheatsheet.png)
 
@@ -105,26 +106,26 @@ example:
 The R package which renders the R Markdown document is *knitr*. It uses other 
 packages and utilities as needed to produce different document formats.
 
-In RStudio, you would nomally run *knitr* using the *Knit HTML* button. 
+In RStudio, you would nomally run *knitr* using the *Knit* button. 
 
 If your document has been configured in R Markdown to generate a PDF document,
-the the button will show as *Knit PDF*.
+pressing the *Knit* button will create a `.pdf` file.
 
-So, the appearance of the button changes depending on the document type.
+If you click the little black arrow button next to the *Knit* button, you can
+select alternative output options.
 
 You can also use the *File* -> *Knit Document* or *File* -> *Compile Notebook*
 menu options.
 
+## Creating an `.Rmd` file
 
-## Creating a .Rmd file
-
-Let's make our first .Rmd file. This is similar to making a script:
+Let's make our first `.Rmd` file. This is similar to making a script:
 
 File -> New File -> R Markdown...
 
 ![](images/Rmd_save.png)
 
-Be sure to save it! "onramp_example.Rmd" works
+Be sure to save it! The filename "onramp_example.Rmd" will work for now.
 
 
 ## Features of the Markdown Document 
@@ -135,17 +136,19 @@ Be sure to save it! "onramp_example.Rmd" works
 
 ![](images/Rmd_example.png)
 
-
 ## Introduction to the Tidyverse
 
 Before we get into data wrangling, let's look at the [Tidyverse](https://www.tidyverse.org/)
 
-"The tidyverse is an opinionated collection of R packages designed for data science. 
-All packages share an underlying design philosophy, grammar, and data structures."
+<div class="columns-2">
 
+![](images/tidyverse.png)
 
+- "The tidyverse is an opinionated collection of R packages designed for data science." 
+- "All packages share an underlying design philosophy, grammar, and data structures."
+- There are tidyverse packages for data wrangling, modeling, and visualization.
 
-There are tidyverse packages for data wrangling, modeling, and visualization.
+</div>
 
 ## Data wrangling with *dplyr*
 
@@ -155,32 +158,60 @@ manipulation challenges"
 
 Common functions include:
 
-* Creating new variables 
-* Choosing variables based on their name 
-* Choosing rows based on a condition 
-* Grouping data by a variable 
+* Choosing variables based on their name with `select()` 
+* Choosing rows based on a condition with `filter()`
+* Grouping data by a variable with `group_by()`
+* Creating new variables or changing old variables with `mutate()`
 
+## Loading packages with *pacman*
+
+* *pacman* will load packages and automatically install missing packages 
+* *pacman* is not a tidyverse package, but it works well with the tidyverse
 
 
 ```r
-# load pacman, installing if needed
+# Load pacman, installing if needed
 if(!require("pacman")){install.packages("pacman", repos="http://cran.r-project.org")}
 
-# load packages as needed (dplyr for wrangling; ggplo2 for data visualization)
+# Load packages as needed (dplyr for wrangling; ggplot2 for data visualization)
 pacman::p_load(dplyr, ggplot2)
 ```
 
 ## Example Dataset `airquality`
 
-R has many built-in datasets - let's get a dataset on air quality from New York in 1973. 
+R has many built-in datasets - let's get an air quality dataset from New York in 1973. 
 
 
 ```r
-# load the "airquality" dataset into the environment
+# Load the "airquality" dataset into the environment
 data(airquality)
+```
 
-## explore its attributes
-# show the class of the dataset
+We can show the structure this dataset with `str()`:
+
+
+```r
+# Show the structure of the dataset
+str(airquality)
+```
+
+```
+## 'data.frame':	153 obs. of  6 variables:
+##  $ Ozone  : int  41 36 12 18 NA 28 23 19 8 NA ...
+##  $ Solar.R: int  190 118 149 313 NA NA 299 99 19 194 ...
+##  $ Wind   : num  7.4 8 12.6 11.5 14.3 14.9 8.6 13.8 20.1 8.6 ...
+##  $ Temp   : int  67 72 74 62 56 66 65 59 61 69 ...
+##  $ Month  : int  5 5 5 5 5 5 5 5 5 5 ...
+##  $ Day    : int  1 2 3 4 5 6 7 8 9 10 ...
+```
+
+## Example Dataset `airquality`
+
+Alternatively, you can use `class()`, `dim()`, and `head()`:
+
+
+```r
+# Show the class and dimensions (153 rows and 6 columns) of the dataset
 class(airquality)
 ```
 
@@ -189,22 +220,6 @@ class(airquality)
 ```
 
 ```r
-# displays the first several rows of data
-head(airquality)
-```
-
-```
-##   Ozone Solar.R Wind Temp Month Day
-## 1    41     190  7.4   67     5   1
-## 2    36     118  8.0   72     5   2
-## 3    12     149 12.6   74     5   3
-## 4    18     313 11.5   62     5   4
-## 5    NA      NA 14.3   56     5   5
-## 6    28      NA 14.9   66     5   6
-```
-
-```r
-# display the dimensions (153 rows and 6 columns of the dataset)
 dim(airquality)
 ```
 
@@ -212,12 +227,23 @@ dim(airquality)
 ## [1] 153   6
 ```
 
+```r
+# Display the first three rows of data
+head(airquality, n = 3)
+```
 
-## Wranlge *airqualtiy*
+```
+##   Ozone Solar.R Wind Temp Month Day
+## 1    41     190  7.4   67     5   1
+## 2    36     118  8.0   72     5   2
+## 3    12     149 12.6   74     5   3
+```
 
-Common data tasks are simplified with dplyr, once you learn the verbs.
+## Wrangle *airquality*
 
-Let's add a variable to airquality using `mutate()`
+Common data tasks are simplified with *dplyr*, once you learn the verbs.
+
+Let's add a variable to `airquality` using `mutate()`
 
 
 ```r
@@ -239,13 +265,39 @@ head(mutate(airquality, Year = 1973), n = 10)
 ## 10    NA     194  8.6   69     5  10 1973
 ```
 
-## Wrangle *airquality*
+## Sneak preview: Using "pipes"
 
-Let's take a look at the new `airquality` dataframe.
+Alternatively, we can do the same thing with "pipes" (%>%):
 
 
 ```r
-# show the dataframe, looking at the first few rows
+# Add the year of the measurements and look at the first 10 rows
+airquality %>% mutate(Year = 1973) %>% head(n = 10)
+```
+
+```
+##    Ozone Solar.R Wind Temp Month Day Year
+## 1     41     190  7.4   67     5   1 1973
+## 2     36     118  8.0   72     5   2 1973
+## 3     12     149 12.6   74     5   3 1973
+## 4     18     313 11.5   62     5   4 1973
+## 5     NA      NA 14.3   56     5   5 1973
+## 6     28      NA 14.9   66     5   6 1973
+## 7     23     299  8.6   65     5   7 1973
+## 8     19      99 13.8   59     5   8 1973
+## 9      8      19 20.1   61     5   9 1973
+## 10    NA     194  8.6   69     5  10 1973
+```
+
+Is this code with pipes more readable? Why? We'll see pipes again a little later...
+
+## Wrangle *airquality*
+
+Let's take a look at the new `airquality` dataframe with `head()`.
+
+
+```r
+# Show the dataframe, looking at the first few rows
 head(airquality)
 ```
 
@@ -261,18 +313,18 @@ head(airquality)
 
 What happened here? Where did the `Year` column go? In our previous step, a dataframe printed to the console with the new `Year` variable, but it did not change the `airquality` object in the environment.
 
-We performed a task on the original `airquality` object, but since we did not make a new assignment, the change was not "saved" to the object in the environment.
+We performed a task on the original `airquality` object, but since we did not make a new assignment (e.g., with `<-`), the change was not "saved" to the object in the environment.
 
 ## Wrangle *airquality*
 
-Now we'll add `Year` and make a new assignment 
+Now we'll add `Year` and make a new assignment to save it.
 
 
 ```r
 # Add year to the dataframe
 airquality <- mutate(airquality, Year = 1973)
 
-# take a look!
+# Take a look!
 head(airquality)
 ```
 
@@ -294,7 +346,7 @@ Now let's create a date column. We'll create a character string first to break t
 
 
 ```r
-#make a character variable, then a date variable
+# Make a character variable, then a date variable
 airquality <- mutate(airquality, Date_char = paste(Year, Month, Day, sep = "-"))
 airquality <- mutate(airquality, Date = as.Date(Date_char, format = "%Y-%m-%d"))
 
@@ -312,7 +364,7 @@ head(airquality)
 ```
 
 ```r
-# check the class
+# Check the class
 class(airquality$Date)
 ```
 
@@ -322,7 +374,11 @@ class(airquality$Date)
 
 ## Wrangle *airquality*
 
-Say were only interested in data from May, let's filter our data now. The filter function takes a logical condition, requiring `==` which is different than `=` when we are assigning variables within functions.
+Say we're only interested in data from May. Let's filter our data now. 
+
+The filter function takes a logical condition, requiring `==` (is equal to?) 
+which is different than `=` when we are assigning variables within functions.
+
 
 ```r
 airquality <- filter(airquality, Month == 5)
@@ -343,25 +399,28 @@ Great, that's what we were expecting.
 
 ## Wrangle *airquality*
 
-Next, let's consider the pipe operator `%>%` which will help us streamline these operations so it is clear and more succinct. The pipe operator feeds the output of one function into the input of the next, avoiding having to make multiple assignments.
+Next, let's now consider using the pipe operator, `%>%`. It will help us 
+streamline these operations to be more clear and succinct. 
+
+The pipe operator feeds the output of one function into the input of the next, avoiding having to make multiple assignments.
 
 
 ```r
-# reload dataset to start fresh
+# Reload dataset to start fresh
 data(airquality)
 
-# wrangle airquality with pipe operators
+# Wrangle airquality with pipe operators
 airquality_may <- airquality %>% 
   
-  # add year, and date variables using mutate
+  # Add year, and date variables using mutate
   mutate(Year = 1973,
          Date_char = paste(Year, Month, Day, sep = "-"), 
          Date = as.Date(Date_char, format = "%Y-%m-%d")) %>% 
   
-  # filter dataframe to the month of May
+  # Filter dataframe to the month of May
   filter(Month == 5) %>% 
   
-  # select the variables of interest
+  # Select the variables of interest
   select(Ozone, Temp, Date)
 ```
 
@@ -387,18 +446,18 @@ head(airquality_may)
 
 ## Wrangle *airquality*
 
-What if we're interested in the average ozone and temperature by month? Would we have to repeat this process for each month? dplyr has easy and powerful functions to perform data wrangling tasks on groups: `group_by()` and `summarise()`
+What if we're interested in the average ozone and temperature by month? Would we have to repeat this process for each month? *dplyr* has easy and powerful functions to perform data wrangling tasks on groups: `group_by()` and `summarise()`
 
 
 ```r
-# average by month, note the argument `na.rm = TRUE` is required to ignore the 
-# NA values. Otherwise NA would be returned 
+# Average by month, using the argument `na.rm = TRUE` to ignore the NA values.
+# If you omit `na.rm = TRUE`, then any NAs will cause the mean to be NA. 
 airquality_by_month <- airquality %>% 
   
-  # group dataframe by month
+  # Group dataframe by month
   group_by(Month) %>% 
   
-  # calculate average ozone concentration and temperature
+  # Calculate average ozone concentration and temperature
   summarise(Ozone_avg = mean(Ozone, na.rm = TRUE), 
             Temp_avg = mean(Temp, na.rm = TRUE))
 ```
@@ -407,7 +466,7 @@ airquality_by_month <- airquality %>%
 
 
 ```r
-# show new dataframe
+# Show new dataframe
 airquality_by_month
 ```
 
@@ -429,16 +488,16 @@ Now let's make a simple plot so we have an example for our rendered document. Th
 
 
 ```r
-# initialize ggplot
+# Create a ggplot object and save it as "p"
 p <- ggplot(data = airquality_may) + 
   
-  # specify the type of geometry and the aesthetic features
+  # Specify the type of geometry and the aesthetic features
   geom_line(aes(x = Date, y = Ozone)) + 
   
-  # specify labels
+  # Specify labels
   labs(y = "Ozone Conc. (ppb)") + 
   
-  # choose theme
+  # Choose theme
   theme_classic()
 ```
 
@@ -446,19 +505,15 @@ p <- ggplot(data = airquality_may) +
 
 
 ```r
-# show plot
+# Show plot
 p
 ```
 
-![](r_intro_tidyverse_literate_programming_files/figure-html/unnamed-chunk-15-1.png)<!-- -->
-
+![](r_intro_tidyverse_literate_programming_files/figure-html/unnamed-chunk-17-1.png)<!-- -->
 
 ## Render Markdown Document
 
 Next, let's render the document using the "Knit" button.
-
-
-
 
 ## 
 
@@ -477,7 +532,4 @@ MM.      ,MP   MM    MM 8M"""""" `YMMMa.   MM     MM 8M     M8 MM    MM  `YMMMa.
        `bood'
 </pre>
 <!-- http://patorjk.com/software/taag/#p=display&f=Georgia11&t=Questions%3F%0A -->
-
-
-
 
