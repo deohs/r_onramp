@@ -134,9 +134,8 @@ Basically, when posting questions:
     - See: [his books](https://leanpub.com/u/rdpeng)
     - See also: [Coursera Data Science Specialization](https://www.coursera.org/specializations/jhu-data-science), **free to audit with registration**
 * [Up and Running with R](http://www.lynda.com/R-tutorials/Up-Running-R/120612-2.html) (2-1/2 hours)
-    - By Barton Poulson - Lynda.com - **free with SPL library card**
-    - Login [through SPL](https://ezproxy.spl.org/login?url=http://lynda.com/portal/sip?org=spl.org)
-    - using your SPL [library card](http://www.spl.org/using-the-library/get-started/get-a-library-card) to gain free access.
+    - By Barton Poulson - Lynda.com
+    - Login [through SPL](https://ezproxy.spl.org/login?url=http://lynda.com/portal/sip?org=spl.org) or [through UW](https://lnkd.in/ge35aet)
     - See: [R Statistics Essential Training](https://www.lynda.com/R-tutorials/R-Statistics-Essential-Training/142447-2.html) (6 hours)
 * [R for the Intimidated](https://www.datacamp.com/courses/r-for-the-intimidated) (2 hours)
     - By Annika Salzberg - DataCamp - **free with registration**
@@ -191,6 +190,8 @@ has been linked to the publisher's website for each book.
 
 * [R for Data Science](https://r4ds.had.co.nz/)
     - by Hadley Wickham & Garrett Grolemund
+* [Advanced R](http://adv-r.had.co.nz/)
+    - by Hadley Wickham
 * [R for Everyone: Advanced Analytics and Graphics](http://www.jaredlander.com/r-for-everyone/)
     - by Jared P. Lander ( [GOOG](https://www.google.com/search?tbo=p&tbm=bks&q=intitle:%22R+for+Everyone%3A+Advanced+Analytics+and+Graphics%22&num=10&gws_rd=ssl) | [AMZN](http://www.amazon.com/dp/0321888030/?tag=5308-0610-7646) | [UW](http://alliance-primo.hosted.exlibrisgroup.com/primo_library/libweb/action/search.do?fn=search&ct=search&vid=UW&vl%28753972432UI0%29=title&vl%281UIStartWith0%29=starts+with&vl%28freeText0%29=%22R+for+Everyone%3A+Advanced+Analytics+and+Graphics%22&Submit=Search) )
 * [R in Action: Data Analysis and Graphics with R](https://www.manning.com/books/r-in-action-second-edition) 
