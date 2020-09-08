@@ -22,6 +22,7 @@ You will learn:
 * The basics of R "data objects" and "classes"
 * The basic "primitive" data types in R
 * How to inspect the properties of data objects
+* How to create categorical variables in R
 * How to convert data objects to other types
 * How to access, assign and display data in R
 * How to call functions
@@ -31,9 +32,6 @@ You will learn:
 * What is unusual about R
 * The overall structure of the R language
 * The basic "higher order" data structures in R
-* How to create categorical variables in R
-* How to convert a data object from one structure to another
-
 
 ## Data Objects
 
@@ -51,13 +49,9 @@ objects are built upon these.
 also store functions, packages, connections, and other structures intended for 
 other uses. 
 
-In this module, we will focus on data objects -- those which are used 
-primarily for data storage and manipulation in memory.
-
 Like other objects, data objects have a *type* and a *class*. The type defines
-*how* the data are stored, while the class define *what* data are contained 
+*how* the data are stored, while the class defines *what* data are contained 
 within an object.
-
 
 ## Accessing Data
 
@@ -104,10 +98,9 @@ This value will be stored in your computer's memory for the duration of the
 current session, or until it is modified or deleted by you, your code, or your
 environment (execution context).
 
-
 ## Argument assignment with `=`
 
-The `=` symbol is the assignment operator, used within function calls.
+The `=` symbol is an additional assignment operator, most generally used within function calls.
 
 The `=` symbol tells R that the expected argument (parameter) `x` should take 
 the value of our `number` variable.
@@ -122,10 +115,12 @@ print(x = number)
 ```
 
 This assignment takes place within the function call and is not available 
-outside of the function or after the function call is made.
+outside of the function or after the function call has competed.
 
-Since the `x` argument is the first argument expected by the function, we do
-not have to explicity assign our value to this argument, if we supply our
+## Implicit (unnamed) function arguments
+
+Since the `x` argument is the first parameter expected by the function, we do
+not have to explicity assign our value as a named argument, if we supply our
 value as the first (or only) argument.
 
 
@@ -141,14 +136,14 @@ print(number)
 
 Just remember: 
 
-* use `<-` for variable assignment 
+* use `<-` for variable assignment (but you may also see `=` here too)
 
 
 ```r
 number <- 68.1
 ```
 
-* use `=` for argument assignment within function calls
+* use `=` for argument assignment within function calls (almost never `<-`)
 
 
 ```r
@@ -157,10 +152,11 @@ print(x = number)
 
 ## Code Comments in R
 
-The `#` is used for comments. Everthing on a line of code after the `#` will be ignored by R.
+The `#` is used for comments. Everything on a line of code after the `#` will be ignored by R.
 
 
 ```r
+# Assign a value to "val".
 val <- 1234
 val    # This is a bad name for a variable because it is not very descriptive.
 ```
@@ -169,6 +165,16 @@ val    # This is a bad name for a variable because it is not very descriptive.
 ## [1] 1234
 ```
 
+It's usually better to put comments on their own line, as in the first example. 
+
+If comments are added to a line of code, as in the second example, both comments 
+and code can be harder to read.
+
+It's common to indent the comment to line up with the code it's commenting.
+
+It's also common for the comment to read like a command (e.g., "Do this"), so 
+that it becomes a spoken language translation of what you are actually telling 
+the computer to do.
 
 ## Data Types and Classes
 
@@ -177,7 +183,7 @@ The most basic data types are `numeric` (`double` and `integer`), `complex`,
 
 
 ```r
-typeof(1)       # "double" -- double precision floating point number
+typeof(1)       # "double"    -- double precision floating point number
 ```
 
 ```
@@ -185,7 +191,7 @@ typeof(1)       # "double" -- double precision floating point number
 ```
 
 ```r
-typeof(1L)      # "integer" -- "L" after one or more digits makes it an integer
+typeof(1L)      # "integer"   -- "L" after one or more digits makes it an integer
 ```
 
 ```
@@ -193,19 +199,11 @@ typeof(1L)      # "integer" -- "L" after one or more digits makes it an integer
 ```
 
 ```r
-typeof(TRUE)    # "logical" -- either TRUE or FALSE
+typeof(TRUE)    # "logical"   -- either TRUE or FALSE
 ```
 
 ```
 ## [1] "logical"
-```
-
-```r
-typeof(1 + 2i)  # "complex" -- a number with real and imaginary components
-```
-
-```
-## [1] "complex"
 ```
 
 ## Data Types and Classes: Character
@@ -214,7 +212,7 @@ Characters are entered with quotes around them (single or double quotes).
 
 
 ```r
-typeof('abcd')     # "character" -- a non-numeric "string" of text characters
+typeof('abcd')  # "character" -- a non-numeric "string" of text characters
 ```
 
 ```
@@ -240,7 +238,7 @@ You can show the "higher order" (if any) type of a data object with `class()`.
 
 
 ```r
-typeof(1234)      # double  (the more basic "primitive" type)
+typeof(1234)        # double  (the more basic "primitive" type)
 ```
 
 ```
@@ -248,7 +246,7 @@ typeof(1234)      # double  (the more basic "primitive" type)
 ```
 
 ```r
-class(1234)       # numeric (the more general "higher order" type)
+class(1234)         # numeric (the more general "higher order" type)
 ```
 
 ```
@@ -256,7 +254,7 @@ class(1234)       # numeric (the more general "higher order" type)
 ```
 
 ```r
-typeof('abcd')    # character
+typeof('abcd')      # character
 ```
 
 ```
@@ -264,7 +262,7 @@ typeof('abcd')    # character
 ```
 
 ```r
-class('abcd')     # character
+class('abcd')       # character
 ```
 
 ```
@@ -272,7 +270,7 @@ class('abcd')     # character
 ```
 
 
-## Data Types and Classes: Dates and Times
+## Dates and Times
 
 There are special classes for dates and time to allow for date/time arithmetic 
 and formatting.
@@ -286,7 +284,7 @@ my_date <- as.Date("2020-09-30", format = '%Y-%m-%d')
 my_datetime <- as.POSIXct("2020-09-30 12:00:", tz = "US/Pacific")
 ```
 
-## Data Types and Classes: Single-Value (Scalar) Data Types
+## Single-Value (Scalar) Data Types
 
 Data types consisting of only a single value are also called "scalar" types.
 
@@ -300,10 +298,8 @@ TRUE       | logical   | logical           | logical
 Sys.Date() | double    | Date              | numeric 
 Sys.time() | double    | POSIXct,  POSIXlt | numeric 
 
-There are other, more esoteric data types, which you can learn about with 
-`?typeof`. One of those is `list`, which we will cover next.
 
-## Data Types and Classes: Factors
+## Factors
 
 Factors are categorical variables. Let's create one and explore it's properties.
 
@@ -326,7 +322,7 @@ class(country)
 ## [1] "factor"
 ```
 
-This looks like a characters with the additional attribute of "Levels", 
+This looks like a character variable with the additional attribute of "Levels", 
 where the levels are the unique values. But how is this implemented?
 
 ## Factors
@@ -360,10 +356,8 @@ attributes(country)
 ## [1] "factor"
 ```
 
-As we can see, a factor in R is an object of class "factor" composed of an 
-integer vector and a `$class` attribute and a `$levels` attribute containing a 
-character vector (more on vectors next).
-
+A factor in R is an object of class "factor" composed of an integer vector 
+with a `$class` attribute and a `$levels` attribute containing a character vector.
 
 ## Data Structures: Vector
 
@@ -384,7 +378,6 @@ Here, we created three vectors, which we may describe as follows:
 * `origin` is a factor vector containing countries of origin
 * `height` is a numeric vector containing heights in inches
 * `weight` is a numeric vector containing weights in pounds
-
 More technically speaking, a vector is an ordered collection of one or more 
 individual values of the same data type. 
 
@@ -414,7 +407,7 @@ mat
 
 You can store a two dimensional matrix of data (a "table") as a data frame. This
 is the most common way to work with data in R. A data frame is often constructed
-from one or more vectors.
+from one or more vectors, where each vector becomes a column.
 
 
 ```r
@@ -445,11 +438,9 @@ class(df)
 ```
 
 
-## Data Structures: List 
+## Lists 
 
-A list is a vector of data objects which may be heterogenous (non-atomic).
-
-This is a complicated but very powerful idea. We can put any object in a list.
+A list is a vector of data objects which may be heterogenous and non-atomic. 
 
 
 ```r
@@ -475,6 +466,33 @@ l
 ## height ~ origin
 ```
 
+## Lists
+
+Because lists are heterogenous, we can store many types of objects in a list. 
+
+For example, this list was created with several named objects of various types: 
+
+* vectors of different lengths (`x` and `z`) 
+* a dataframe (`df`) 
+* a formula (`frml`)
+
+Let's use `sapply()` to see that class of each list item.
+
+
+```r
+sapply(X = l, FUN = class)
+```
+
+```
+##            x            z           df         frml 
+##    "integer"  "character" "data.frame"    "formula"
+```
+
+## Lists
+
+Because a list is non-atomic, it can contain other non-atomic objects. 
+
+
 ```r
 is.atomic(l)
 ```
@@ -483,12 +501,17 @@ is.atomic(l)
 ## [1] FALSE
 ```
 
-For example, this list was created with several named objects: 
-* vectors of different lengths (`x` and `z`) 
-* a dataframe (`df`) 
-* a formula (`frml`)
+Let's use `sapply()` to see if each list item is atomic or not.
 
-We can even include things like graphics/figures.
+
+```r
+sapply(X = l, FUN = is.atomic)
+```
+
+```
+##     x     z    df  frml 
+##  TRUE  TRUE FALSE FALSE
+```
 
 ## Viewing data
 
@@ -507,7 +530,6 @@ spreadsheet.
 However, unlike a spreadsheet, you will not be able to manipulate
 your data in this display.
 
-
 ## Accessing Data Elements: Indexing
 
 Data are accessed though "indexing." There are several methods of [indexing in R](https://cran.r-project.org/doc/manuals/R-lang.html#Indexing) worth becoming familiar with. Today, we'll stick to two.
@@ -516,7 +538,7 @@ Take our matrix example earlier, `mat`. As with many languages you can access da
 
 
 ```r
-# gives the 4th element (which in this case is 4)
+# Display the 4th element (which in this case is 4)
 mat[4]
 ```
 
@@ -525,21 +547,12 @@ mat[4]
 ```
 
 ```r
-# gives the element in the first row and second column
+# Display the element in the first row and second column
 mat[1, 2]
 ```
 
 ```
 ## [1] 4
-```
-
-```r
-# gives all the rows of the second colmn 
-mat[ , 2] 
-```
-
-```
-## [1] 4 5 6
 ```
 
 ## Accessing Data Elements by Variable Names
@@ -548,42 +561,20 @@ While you can access data in dataframes positionally using double brackets (`[[`
 
 
 ```r
-# instead of using position 
+# Using position 
 df[[1]]
-```
-
-```
-## [1] A B C D
-## Levels: A B C D
-```
-
-```r
 df[[3]]
-```
 
-```
-## [1] 68.1 69.4 71.2 68.9
-```
+# Using variable names
+df[['id']]
+df[['height']]
 
-```r
-# used variable names
+# Using variable names
 df$id
-```
-
-```
-## [1] A B C D
-## Levels: A B C D
-```
-
-```r
 df$height
 ```
 
-```
-## [1] 68.1 69.4 71.2 68.9
-```
 What is an advantage to this kind of indexing?
-
 
 ## Performing calculations
 
@@ -627,7 +618,7 @@ sqrt(2)
 R allows you to perform calculations on all items in a vector or all rows of a 
 data frame at the same time. 
 
-Operations that allow this are called *vectorized* operations. They are often 
+Operations that allow this are called *vectorized* operations. They may be 
 much faster than the alternatives (e.g. "loops"). 
 
 
@@ -698,23 +689,19 @@ Compared to other popular computer languages, R has some quirks.
 
 **_Assignment_**
 
-* R's assignment operator is `<-` not `=` (except within a function call)
-* But most R users still seem to prefer `<-` (though `=` will usually work)
+* R's assignment operator is `<-` not `=` (except within a function call).
+* But most R users still seem to prefer `<-` (though `=` will usually work).
 
 **_The Period:_**
 
-* The `.` is often used to separate words in a variable name
-* Many other languages use the `.` to refer to "properties" -- R uses `$`
+* The `.` is often used to separate words in a variable name.
+* Many other languages use the `.` to refer to "properties" -- R uses `$`.
 
 **_Vectors:_**
 
-* A set of values of the same type is called a "vector" (not an "array", etc.)
-* Many common functions and operators work directly on vectors ("vectorized")
-* Vectors in R are indexed starting from `1` not `0`
-
-**_Usage:_**
-
-* R is often used for interactive data analysis at a command prompt
+* A set of values of the same type is called a "vector" (not an "array", etc.).
+* Many common functions and operators work directly on vectors ("vectorized").
+* Vectors in R are indexed starting from `1` not `0`.
 
 ## The R Language (Some Jargon)
 
