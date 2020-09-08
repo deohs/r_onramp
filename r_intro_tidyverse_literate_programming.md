@@ -171,7 +171,8 @@ Common functions include:
 
 ```r
 # Load pacman, installing if needed
-if(!require("pacman")){install.packages("pacman", repos="http://cran.r-project.org")}
+if (!require("pacman")) 
+  install.packages("pacman", repos = "http://cran.r-project.org")
 
 # Load packages as needed (dplyr for wrangling; ggplot2 for data visualization)
 pacman::p_load(dplyr, ggplot2)
