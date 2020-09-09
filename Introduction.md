@@ -130,10 +130,7 @@ Welcome to RStudio! Next, we'll provide an orientation to:
 ## Orientation: Source Pane
 
 The "Source" pane is where files will display when opened and where data grids
-will display.
-
-The reason it is called the "Source" pane is because it is primarily used to
-edit source code such as R scripts as text files. 
+will display. It is primarily used to edit source code such as R scripts as text files. 
 
 When text files are opened in RStudio, the tab they are displayed in is a 
 full-featured text editor with syntax highlighting, search-and-replace and
@@ -197,6 +194,9 @@ For example, output from pressing the "Knit HTML" button will appear in a "R Mar
 * The prompt waits for commands
 * You type a command at the prompt and press *Enter* (or *Return*)
 * R will parse your commands and try follow them
+
+R Response 
+
 * R will either show an error, show results, or silently complete the task
 * R will display the prompt with a `>` character (by default)
 * R will display a `+` prompt if it expects more from you than you provided

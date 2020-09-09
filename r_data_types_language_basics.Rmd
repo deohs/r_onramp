@@ -44,9 +44,6 @@ R is an *object oriented* language - everything in R is an *object*. What
 this means is that all of your data and code structures are stored in your 
 computer's memory using the same framework. 
 
-This provides a great deal of consistency in working with R because you can use 
-many of the same methods to interact with various components of R.
-
 There are a core set of basic object types and classes built into R. All other
 objects are built upon these.
 

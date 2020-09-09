@@ -113,7 +113,7 @@ In RStudio, you would nomally run *knitr* using the *Knit HTML* button.
 If your document has been configured in R Markdown to generate a PDF document,
 the the button will show as *Knit PDF*.
 
-So, the appearance of the button changes depending on the document type.
+The appearance of the button changes depending on the document type.
 
 You can also use the *File* -> *Knit Document* or *File* -> *Compile Notebook*
 menu options.
@@ -352,7 +352,8 @@ p <- ggplot(data = airquality_may) +
 
 ```{r}
 # show plot
-p
+print(p)
+
 ```
 
 
