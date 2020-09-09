@@ -108,7 +108,7 @@ example:
 The R package which renders the R Markdown document is *knitr*. It uses other 
 packages and utilities as needed to produce different document formats.
 
-In RStudio, you would nomally run *knitr* using the *Knit HTML* button. 
+In RStudio, you would normally run *knitr* using the *Knit HTML* button. 
 
 If your document has been configured in R Markdown to generate a PDF document,
 the the button will show as *Knit PDF*.
@@ -199,7 +199,7 @@ dim(airquality)
 ```
 
 
-## Wranlge *airqualtiy*
+## Wrangle *airquality*
 
 Common data tasks are simplified with dplyr, once you learn the verbs.
 

@@ -84,7 +84,7 @@ We are going to gear our instruction towards the use of RStudio and will not be 
 * Requires UW NetID and DEOHS account
 * UW Campus only (or through "VPN")
 * Easily access your departmental storage (network "drives")
-* EHIT manages installation and maintenence, ensuring it works and is the same for all users, making it easier to learn and teach 
+* EHIT manages installation and maintenance, ensuring it works and is the same for all users, making it easier to learn and teach 
 * This onramp is geared towards RStudio on Plasmid
 
 ### Download and run locally
@@ -199,10 +199,13 @@ For example, output from pressing the "Knit HTML" button will appear in a "R Mar
 * The prompt waits for commands
 * You type a command at the prompt and press *Enter* (or *Return*)
 * R will parse your commands and try follow them
+
+Output:  
+
 * R will either show an error, show results, or silently complete the task
 * R will display the prompt with a `>` character (by default)
 * R will display a `+` prompt if it expects more from you than you provided
-* R will display output below the command, with `[#]` often preceeding data
+* R will display output below the command, with `[#]` often preceding data
 
 ## How to use Prompt output
 

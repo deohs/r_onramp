@@ -166,7 +166,7 @@ swirl()
 
 These are available at no cost to [UW](https://www.lib.washington.edu/) students, 
 staff, or faculty. The links we have provided (for the title text) are to the 
-UW-licenced copy. There are many more R books available through the UW, but these
+UW-licensed copy. There are many more R books available through the UW, but these
 are some of our favorites.
 
 - [Beginning Data Science with R](http://alliance-primo.hosted.exlibrisgroup.com/UW:all:CP71215329450001451)

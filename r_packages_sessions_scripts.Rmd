@@ -20,7 +20,7 @@ You will learn:
 * What packages are
 * What a "library" is
 * How to view your libraries
-* How to install and upgrade a pakcage 
+* How to install and upgrade a package 
 * How to upgrade all of your packages
 * How to load a package into memory
 * How to unload and uninstall a package 

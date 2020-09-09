@@ -105,7 +105,7 @@ This assignment takes place within the function call and is not available
 outside of the function or after the function call is made.
 
 Since the `x` argument is the first argument expected by the function, we do
-not have to explicity assign our value to this argument, if we supply our
+not have to explicitly assign our value to this argument, if we supply our
 value as the first (or only) argument.
 
 ```{r}
@@ -130,7 +130,7 @@ print(x = number)
 
 ## Code Comments in R
 
-The `#` is used for comments. Everthing on a line of code after the `#` will be ignored by R.
+The `#` is used for comments. Everything on a line of code after the `#` will be ignored by R.
 
 ```{r}
 val <- 1234
@@ -248,7 +248,7 @@ weight <- c(159.2, 162.3, 203.5, 181.3)
 
 Here, we created three vectors, which we may describe as follows:
 
-* `id` is a character vector containing alphabetic indentifiers
+* `id` is a character vector containing alphabetic identifiers
 * `origin` is a factor vector containing countries of origin
 * `height` is a numeric vector containing heights in inches
 * `weight` is a numeric vector containing weights in pounds
@@ -293,7 +293,7 @@ class(df)
 
 ## Data Structures: List 
 
-A list is a vector of data objects which may be heterogenous (non-atomic).
+A list is a vector of data objects which may be heterogeneous (non-atomic).
 
 This is a complicated but very powerful idea. We can put any object in a list.
 
