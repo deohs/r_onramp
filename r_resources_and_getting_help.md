@@ -88,7 +88,7 @@ Example: [tidyr package index](https://cran.r-project.org/web/packages/tidyr/ind
 Many R packages have [Cheat Sheets](https://rstudio.com/resources/cheatsheets/) 
 to help with common tasks and questions.
 
-![[R Markdown cheat sheet](https://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf)](images/cheatsheet.png)
+![](images/cheatsheet.png)
 
 ## Support through Online Forums
 
@@ -150,8 +150,8 @@ You do not need to "register" or create an account to run the tutorial. This tut
 
 ### Swirl tutorials
 
-See if you can get through all 15 segments of the "R Programming: The basics of programming in R" course. ([Swirl](http://swirlstats.com/students.html),
-[Swirl Guide](https://github.com/ClaudiaBrauer/A-very-short-introduction-to-R/blob/master/documents/Using%20swirl%20to%20practise%20R.pdf)) Use the alternative version, "R Programming Alt". Install it like this:
+See if you can get through all 15 segments of the "R Programming: The basics of programming in R" course ([Swirl](http://swirlstats.com/students.html),
+[Swirl Guide](https://github.com/ClaudiaBrauer/A-very-short-introduction-to-R/blob/master/documents/Using%20swirl%20to%20practise%20R.pdf)). Use the alternative version, "R Programming Alt". Install it like this:
 
 
 ```r
@@ -165,7 +165,7 @@ swirl()
 
 These are available at no cost to [UW](https://www.lib.washington.edu/) students, 
 staff, or faculty. The links we have provided (for the title text) are to the 
-UW-licenced copy. There are many more R books available through the UW, but these
+UW-licensed copy. There are many more R books available through the UW, but these
 are some of our favorites.
 
 - [Beginning Data Science with R](http://alliance-primo.hosted.exlibrisgroup.com/UW:all:CP71215329450001451)
