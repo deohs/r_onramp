@@ -41,9 +41,6 @@ R is an *object oriented* language - everything in R is an *object*. What
 this means is that all of your data and code structures are stored in your 
 computer's memory using the same framework. 
 
-This provides a great deal of consistency in working with R because you can use 
-many of the same methods to interact with various components of R.
-
 There are a core set of basic object types and classes built into R. All other
 objects are built upon these.
 
@@ -125,7 +122,7 @@ This assignment takes place within the function call and is not available
 outside of the function or after the function call is made.
 
 Since the `x` argument is the first argument expected by the function, we do
-not have to explicity assign our value to this argument, if we supply our
+not have to explicitly assign our value to this argument, if we supply our
 value as the first (or only) argument.
 
 
@@ -157,7 +154,7 @@ print(x = number)
 
 ## Code Comments in R
 
-The `#` is used for comments. Everthing on a line of code after the `#` will be ignored by R.
+The `#` is used for comments. Everything on a line of code after the `#` will be ignored by R.
 
 
 ```r
@@ -198,14 +195,6 @@ typeof(TRUE)    # "logical" -- either TRUE or FALSE
 
 ```
 ## [1] "logical"
-```
-
-```r
-typeof(1 + 2i)  # "complex" -- a number with real and imaginary components
-```
-
-```
-## [1] "complex"
 ```
 
 ## Data Types and Classes: Character
@@ -296,25 +285,25 @@ Example    | Type      | Class             | Storage Mode
 1          | double    | numeric           | numeric
 '1'        | character | character         | character
 TRUE       | logical   | logical           | logical
-1+1i       | complex   | complex           | complex
 Sys.Date() | double    | Date              | numeric 
 Sys.time() | double    | POSIXct,  POSIXlt | numeric 
 
 There are other, more esoteric data types, which you can learn about with 
-`?typeof`. One of those is `list`, which we will cover next.
+`?typeof`. One of those is `list`, which we will cover soon.
 
 ## Data Types and Classes: Factors
 
-Factors are categorical variables. Let's create one and explore it's properties.
+Factors are categorical variables. Let's create an example and explore its 
+properties.
 
 
 ```r
-country <- factor(c("usa", "canada", "mexico"))
+country <- factor(c("usa", "canada", "mexico", "usa", "mexico"))
 country
 ```
 
 ```
-## [1] usa    canada mexico
+## [1] usa    canada mexico usa    mexico
 ## Levels: canada mexico usa
 ```
 
@@ -345,7 +334,7 @@ str(country)
 ```
 
 ```
-##  Factor w/ 3 levels "canada","mexico",..: 3 1 2
+##  Factor w/ 3 levels "canada","mexico",..: 3 1 2 3 2
 ```
 
 ```r
@@ -360,27 +349,26 @@ attributes(country)
 ## [1] "factor"
 ```
 
-As we can see, a factor in R is an object of class "factor" composed of an 
-integer vector and a `$class` attribute and a `$levels` attribute containing a 
-character vector (more on vectors next).
+So factors in R are objects of class "factor" composed of an integer vector and 
+a `$class` attribute and a `$levels` attribute containing a character vector.
 
 
 ## Data Structures: Vector
 
-In R, a vector is a group of values or variables. You can create a 
-vector from a collection of data values using the `c()` (combine) function.
+In R, a vector is a group of values or variables. You can create a vector from a 
+collection of data values using the `c()` (combine) function.
 
 
 ```r
 id <- c('A', 'B', 'C', 'D')
-origin <- c("usa", "canada", "mexico", "canada")
+origin <- factor(c("usa", "canada", "mexico", "canada"))
 height <- c(68.1, 69.4, 71.2, 68.9)
 weight <- c(159.2, 162.3, 203.5, 181.3)
 ```
 
 Here, we created three vectors, which we may describe as follows:
 
-* `id` is a character vector containing alphabetic indentifiers
+* `id` is a character vector containing alphabetic identifiers
 * `origin` is a factor vector containing countries of origin
 * `height` is a numeric vector containing heights in inches
 * `weight` is a numeric vector containing weights in pounds
@@ -447,7 +435,8 @@ class(df)
 
 ## Data Structures: List 
 
-A list is a vector of data objects which may be heterogenous (non-atomic).
+Lists are objects that can contain elements of different types (i.e. elements 
+may be heterogeneous or "non-atomic").
 
 This is a complicated but very powerful idea. We can put any object in a list.
 
@@ -473,14 +462,6 @@ l
 ## 
 ## $frml
 ## height ~ origin
-```
-
-```r
-is.atomic(l)
-```
-
-```
-## [1] FALSE
 ```
 
 For example, this list was created with several named objects: 
@@ -510,9 +491,10 @@ your data in this display.
 
 ## Accessing Data Elements: Indexing
 
-Data are accessed though "indexing." There are several methods of [indexing in R](https://cran.r-project.org/doc/manuals/R-lang.html#Indexing) worth becoming familiar with. Today, we'll stick to two.
+Data are accessed though ["indexing."](https://cran.r-project.org/doc/manuals/R-lang.html#Indexing) Today, we'll learn two primary methods.
 
-Take our matrix example earlier, `mat`. As with many languages you can access data in a matrix by position using single brackets, `[`. 
+Using our matrix example, `mat`, you can access data in the matrix by position 
+using single brackets, `[`. 
 
 
 ```r
@@ -544,7 +526,8 @@ mat[ , 2]
 
 ## Accessing Data Elements by Variable Names
 
-While you can access data in dataframes positionally using double brackets (`[[`), in R you can also access data through variable names using the `$` operator. 
+You can access data in dataframes positionally using double brackets (`[[`), but
+also with variable names using the `$` operator. 
 
 
 ```r
@@ -558,14 +541,6 @@ df[[1]]
 ```
 
 ```r
-df[[3]]
-```
-
-```
-## [1] 68.1 69.4 71.2 68.9
-```
-
-```r
 # used variable names
 df$id
 ```
@@ -573,14 +548,6 @@ df$id
 ```
 ## [1] A B C D
 ## Levels: A B C D
-```
-
-```r
-df$height
-```
-
-```
-## [1] 68.1 69.4 71.2 68.9
 ```
 What is an advantage to this kind of indexing?
 
@@ -698,8 +665,8 @@ Compared to other popular computer languages, R has some quirks.
 
 **_Assignment_**
 
-* R's assignment operator is `<-` not `=` (except within a function call)
-* But most R users still seem to prefer `<-` (though `=` will usually work)
+* The preferred assignment operator is `<-` not `=` (except within a function call)
+
 
 **_The Period:_**
 
@@ -771,3 +738,4 @@ MM.      ,MP   MM    MM 8M"""""" `YMMMa.   MM     MM 8M     M8 MM    MM  `YMMMa.
       MMb                                                                               
        `bood'
 </pre>
+<!-- http://patorjk.com/software/taag/#p=display&f=Georgia11&t=Questions%3F%0A -->
