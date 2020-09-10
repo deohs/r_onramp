@@ -46,12 +46,6 @@ function to load a package from a library on disk into working memory (RAM).
 
 A library is stored as a folder structure on your disk (or the network, etc.).
 
-Site libraries are for packages that all users of your system can access, while
-only you can access your personal libraries.
-
-You can install packages to your personal library, but you may not be able to
-install packages to site libraries, depending on the permissions settings 
-("rights") on your system.
 
 ## Viewing your Libraries
 

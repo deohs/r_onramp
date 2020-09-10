@@ -20,16 +20,12 @@ You will learn:
 * What packages are
 * What a "library" is
 * How to view your libraries
-* How to install a package
-* How to upgrade a package
+* How to install and upgrade a package 
 * How to upgrade all of your packages
 * How to load a package into memory
-* How to unload a package
-* How to uninstall a package
-* What an R "session" is
-* How to save your session
-* How to load a saved session
-* How a session is stored
+* How to unload and uninstall a package 
+* What an R "session" is 
+* How to save, load and store an R session 
 * How to read and write data files
 * How to edit, save, and run scripts
 
@@ -50,12 +46,6 @@ function to load a package from a library on disk into working memory (RAM).
 
 A library is stored as a folder structure on your disk (or the network, etc.).
 
-Site libraries are for packages that all users of your system can access, while
-only you can access your personal libraries.
-
-You can install packages to your personal library, but you may not be able to
-install packages to site libraries, depending on the permissions settings 
-("rights") on your system.
 
 ## Viewing your Libraries
 
@@ -278,10 +268,14 @@ In addition to your history file, you can also save your commands into files cal
 * Scripts are also called "programs".
 * A person who writes a script is a "programmer" - anyone can be a programmer!
 * Scripts store a list of commands to be run as a batch.
-* It is smart to store your commands in scripts.
-* It is smart to make a habit of running your code from scripts instead of the prompt.
 * You can use a script many times to automate your work and save time and effort.
-* Scripting your analysis makes your work more reproducible, which is very important.
+
+
+Best Practices
+
+* Store your commands in scripts.
+* Run your code from scripts instead of the prompt.
+* Script your analysis to make your work more reproducible, which is very important.
 * You can share your code as a script so others can verify your work.
 
 ## Running R Scripts
@@ -413,10 +407,11 @@ After saving and closing your script you can open it and re-run it at a later ti
 
 To run a whole script you can press the "Run" button at the top left of the Source pane.
 
-To go line-by-line put the cursor next to a line and press "Shift" + "Enter"
+To go line-by-line put the cursor next to a line and press "Shift" + "Enter" 
+* For Mac use: "CTRL + Return"
 
 To run a multiple lines, highlight the desired lines and press "Shift" + "Enter"
-
+* For Mac use: "CTRL + Return"
 
 ## 
 
