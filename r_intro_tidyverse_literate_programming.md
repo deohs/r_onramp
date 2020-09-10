@@ -1,6 +1,5 @@
 ---
-title: "Literate Programming & Tidyverse Intro"
-subtitle: "Data wrangling "
+title: "Literate Programming & Tidyverse Introduction"
 author: "Brian High, Nancy Carmona & Chris Zuidema"
 date: "![CC BY-SA 4.0](images/cc_by-sa_4.png)"
 output:
@@ -88,7 +87,6 @@ install.packages(c("htmltools", "rmarkdown", "knitr"), dependencies = TRUE)
 
 
 ## R Markdown Syntax
-
 [R Markdown](https://rmarkdown.rstudio.com/) is a "wiki" syntax based on 
 [Markdown](https://daringfireball.net/projects/markdown/). Here is an 
 example:
@@ -96,21 +94,21 @@ example:
 ![](images/rmarkdown_document.png)
 
 ## R Markdown Cheat Sheet
-(More on R "cheat sheets" later)
+[R Markdown cheat sheet](https://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf) (More on R "cheat sheets" later)
 
-![[R Markdown cheat sheet](https://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf)](images/cheatsheet.png)
+![](images/cheatsheet.png) 
 
 ## *knitr*
 
 The R package which renders the R Markdown document is *knitr*. It uses other 
 packages and utilities as needed to produce different document formats.
 
-In RStudio, you would nomally run *knitr* using the *Knit HTML* button. 
+In RStudio, you would normally run *knitr* using the *Knit HTML* button. 
 
 If your document has been configured in R Markdown to generate a PDF document,
 the the button will show as *Knit PDF*.
 
-So, the appearance of the button changes depending on the document type.
+The appearance of the button changes depending on the document type.
 
 You can also use the *File* -> *Knit Document* or *File* -> *Compile Notebook*
 menu options.
@@ -172,14 +170,14 @@ pacman::p_load(dplyr, ggplot2)
 
 ## Example Dataset `airquality`
 
-R has many built-in datasets - let's get a dataset on air quality from New York in 1973. 
+R has many built-in datasets - let's use one on air quality from New York in 1973. 
 
 
 ```r
 # load the "airquality" dataset into the environment
 data(airquality)
 
-## explore its attributes
+## explore some data attributes
 # show the class of the dataset
 class(airquality)
 ```
@@ -189,7 +187,20 @@ class(airquality)
 ```
 
 ```r
-# displays the first several rows of data
+# display the dimensions (153 rows and 6 columns of the dataset)
+dim(airquality)
+```
+
+```
+## [1] 153   6
+```
+
+
+## Example Dataset `airquality`
+
+
+```r
+# display the first several rows of data
 head(airquality)
 ```
 
@@ -203,17 +214,8 @@ head(airquality)
 ## 6    28      NA 14.9   66     5   6
 ```
 
-```r
-# display the dimensions (153 rows and 6 columns of the dataset)
-dim(airquality)
-```
 
-```
-## [1] 153   6
-```
-
-
-## Wranlge *airqualtiy*
+## Wrangle *airquality*
 
 Common data tasks are simplified with dplyr, once you learn the verbs.
 
@@ -259,7 +261,9 @@ head(airquality)
 ## 6    28      NA 14.9   66     5   6
 ```
 
-What happened here? Where did the `Year` column go? In our previous step, a dataframe printed to the console with the new `Year` variable, but it did not change the `airquality` object in the environment.
+What happened here? Where did the `Year` column go? 
+
+In our previous step, a dataframe printed to the console (if you entered the command at the promt) or displayed below the code chunck (if you ran the command from the Rmarkdown document) with the new `Year` variable.
 
 We performed a task on the original `airquality` object, but since we did not make a new assignment, the change was not "saved" to the object in the environment.
 
@@ -322,7 +326,7 @@ class(airquality$Date)
 
 ## Wrangle *airquality*
 
-Say were only interested in data from May, let's filter our data now. The filter function takes a logical condition, requiring `==` which is different than `=` when we are assigning variables within functions.
+Say we're only interested in data from May, we can restrict our data. The `filter()` function takes a logical condition, requiring `==` (which is different than `=` when we are assigning variables within functions).
 
 ```r
 airquality <- filter(airquality, Month == 5)
@@ -339,21 +343,29 @@ head(airquality)
 ## 6    28      NA 14.9   66     5   6 1973  1973-5-6 1973-05-06
 ```
 
+```r
+dim(airquality)
+```
+
+```
+## [1] 31  9
+```
+
 Great, that's what we were expecting.
 
 ## Wrangle *airquality*
 
-Next, let's consider the pipe operator `%>%` which will help us streamline these operations so it is clear and more succinct. The pipe operator feeds the output of one function into the input of the next, avoiding having to make multiple assignments.
+Next, let's learn about the pipe operator `%>%` which will help us streamline these operations so it is clear and more succinct. The pipe operator feeds the output of one function into the input of the next, avoiding having to make multiple assignments.
 
 
 ```r
 # reload dataset to start fresh
 data(airquality)
 
-# wrangle airquality with pipe operators
+# wrangle airquality with pipe operators starting with original dataframe
 airquality_may <- airquality %>% 
   
-  # add year, and date variables using mutate
+  # add year and date variables using mutate
   mutate(Year = 1973,
          Date_char = paste(Year, Month, Day, sep = "-"), 
          Date = as.Date(Date_char, format = "%Y-%m-%d")) %>% 
@@ -447,10 +459,10 @@ p <- ggplot(data = airquality_may) +
 
 ```r
 # show plot
-p
+print(p)
 ```
 
-![](r_intro_tidyverse_literate_programming_files/figure-html/unnamed-chunk-15-1.png)<!-- -->
+![](r_intro_tidyverse_literate_programming_files/figure-html/unnamed-chunk-16-1.png)<!-- -->
 
 
 ## Render Markdown Document
