@@ -52,21 +52,19 @@ output:
 
 ### RStudio is:
 
-* Created by a commercial organization also called "RStudio"
 * A full-featured, cross-platform, open source application for working with R
-* A graphical user interface (GUI)and integrated development environment (IDE)
+* A graphical user interface (GUI) for working with R
 
 ### RStudio isn't:
 
 * A point-and-click GUI application like a spreadsheet program
 * A text-only command-line utility
-* An R language interpreter
 
 ## Why use RStudio?
 
 * It is a user-friendly way to use R
-    - The interface feels familiar to many people (similar to other IDEs)
-    - It integrates operations common to many data analysis workflows
+    - The interface feels familiar to many people  
+    - Integrates common data analysis workflows
 * You can use it for free on most computer systems
 * It is very popular, so your collaborators may already be using it
 * Very few alternatives (R-GUI, JGR, Visual Studio) are as full-featured
@@ -83,7 +81,7 @@ We are going to gear our instruction towards the use of RStudio and will not be 
 * Requires UW NetID and DEOHS account
 * UW Campus only (or through "VPN")
 * Easily access your departmental storage (network "drives")
-* EHIT manages installation and maintenence, ensuring it works and is the same for all users, making it easier to learn and teach 
+* EHIT manages installation and maintenance, ensuring it works and is the same for all users, making it easier to learn and teach 
 * This onramp is geared towards RStudio on Plasmid
 
 ### Download and run locally
@@ -130,13 +128,17 @@ Welcome to RStudio! Next, we'll provide an orientation to:
 ## Orientation: Source Pane
 
 The "Source" pane is where files will display when opened and where data grids
-will display. It is primarily used to edit source code such as R scripts as text files. 
+will display.
+
+The reason it is called the "Source" pane is because it is primarily used to
+edit source code such as R scripts as text files. 
 
 When text files are opened in RStudio, the tab they are displayed in is a 
 full-featured text editor with syntax highlighting, search-and-replace and
 many other features.
 
 * You can select highlighting for many programming languages in a pick list.
+
 * Editor and other options may be set under Tools -> Global Options.
 
 ## Orientation: Environment Pane
@@ -195,12 +197,12 @@ For example, output from pressing the "Knit HTML" button will appear in a "R Mar
 * You type a command at the prompt and press *Enter* (or *Return*)
 * R will parse your commands and try follow them
 
-R Response 
+Output:  
 
 * R will either show an error, show results, or silently complete the task
 * R will display the prompt with a `>` character (by default)
 * R will display a `+` prompt if it expects more from you than you provided
-* R will display output below the command, with `[#]` often preceeding data
+* R will display output below the command, with `[#]` often preceding data
 
 ## How to use Prompt output
 
@@ -213,13 +215,13 @@ R returns data by:
 
 Usually, you manipulate data in memory and then save it to a file or database when you are done working with it.
 
-While you could copy text results shown to the screen and paste them elsewhere, this method will be of limited use.
+While you could copy text results shown to the screen and paste them elsewhere, this method should be avoided. 
 
 
 ## Orientation: Panes and Tabs
 
 Each pane has two grey buttons in the upper left which allow you to minimize or
-maximize the pane. Maximizing just increases the height, not the width.
+maximize the pane. Maximizing increases the height, not the width.
 
 Each pane has one or more tabs which allow you to pick what you view in that
 pane.
