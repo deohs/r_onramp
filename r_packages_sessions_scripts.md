@@ -17,8 +17,7 @@ output:
 
 You will learn:
 
-* What packages are
-* What a "library" is
+* What packages and libraries are
 * How to view your libraries
 * How to install and upgrade a package 
 * How to upgrade all of your packages
@@ -64,7 +63,7 @@ Before using a package, you must first install it from a "repository".
 
 This is typically* done using `install.packages()`. 
 
-RStudio uses the RStudio Comprehensive R Archive Network ("CRAN") mirror [https://cran.rstudio.com](https://cran.rstudio.com) by default, but other 
+RStudio uses the RStudio "Comprehensive R Archive Network" ("CRAN") mirror [https://cran.rstudio.com](https://cran.rstudio.com) by default, but other 
 repositories can be specified.
 
 
@@ -78,10 +77,10 @@ Note that the package name must be quoted.
 `*` For packages from the Bioconductor project (for bio-informatics), there is 
 [another method](https://www.bioconductor.org/install/) to install packages. 
 
-
 ## Load a package into memory
 
 Next, you need to load the package into memory (RAM), using `library()`.
+
 
 ```r
 library(dplyr)
@@ -89,13 +88,12 @@ library(dplyr)
 
 Notes:
 
-* only one package name is allowed
-* the package name is not quoted 
-* there is a similar command, `require()`, that is used inside of functions. More on this (with example) later.
+* Only one package name is allowed.
+* The package name is not quoted (unless you specify `character.only = TRUE`).
+* There is a similar command, `require()`, that is used inside of functions.
 
 The see the list of currently loaded packages, type `(.packages())` and include
 all of those parenthesis. Or you can use `search()`.
-
 
 ## Upgrading and Uninstalling Packages
 
@@ -118,10 +116,24 @@ To uninstall (remove) package, run:
 
 
 ```r
-# example of removing a package
+# Example of removing a package
 remove.packages("dplyr")
 ```
 
+## Update *tidyverse* packages
+
+If you have installed the *tidyverse* package, you can update the various 
+associated packages with the following command:
+
+
+```r
+tidyverse::tidyverse_update(recursive = TRUE)
+```
+
+This will check the versions you have installed against the latest available 
+and will then provide you with a `install.packages()` command which you can 
+copy and paste into the Console to run. That command will install only those 
+*tidyverse* packages necessary to bring your library up-to-date.
 
 ## *pacman*
 
@@ -129,27 +141,26 @@ There is an additional package called *pacman* which makes package management
 much easier. 
 
 *pacman* can handle all aspects of package management previously discussed using
-the "base" R functions. Usually, *pacman's* syntax easier, or involves less typing.
+the "base" R functions. Usually, *pacman's* syntax is easier, or involves less 
+typing.
 
 Instead of running `install.packages()` and `library()`, for each package, you 
 can do it all with pacman.
 
 
 ```r
-# install pacman the first time
-install.packages("pacman")
+# Load pacman, installing if needed
+if (!require("pacman")) 
+  install.packages("pacman", repos = "http://cran.r-project.org")
 
-# load pacman
-library(pacman)
-
-# then use the pacman function `p_load()` to load a list of packages
+# Use the pacman function `p_load()` to load a list of packages
 p_load(dplyr, tidyr, stringr, ggplot2)
 ```
 
 That may not seem any better than `install.packages()` and `library()`, 
-because you still have to get *pacman*, but you'll see its usefulness when we 
-cover R sessions, files, and scripts next.
-
+because you still have to get *pacman*. But by using this approach, your script 
+can run without crashing due to missing packages, as any missing packages will
+be installed automatically, including *pacman* itself. How cool is that?
 
 ## R Sessions and Profiles
 
@@ -167,8 +178,8 @@ An R session:
 
 How do you save an R session?
 
-* answer 'yes' when prompted, upon quitting your session
-* save your command history and workspace with R commands or menu choices
+* Answer 'yes' when prompted, upon quitting your session.
+* Save your command history and workspace with R commands or menu choices.
 
 Example: Save your command history to the current folder (as `.Rhistory`):
 
@@ -232,8 +243,8 @@ load("xy.RData")
 
 ## R Data Files
 
-It is generally a good idea to write data to a standard, "transparent" (i.e., plain text) format
-unless you have a good reason to do otherwise.
+It is generally a good idea to write data to a standard, "transparent" 
+(i.e., plain text) format unless you have a good reason to do otherwise.
 
 Writing to a CSV file:
 
@@ -243,7 +254,7 @@ Writing to a CSV file:
 data("iris")
 
 # Example of writing the dataset to a csv file
-write.csv(iris, "iris.csv")
+write.csv(iris, "iris.csv", row.names = FALSE)
 ```
 
 Reading from a CSV file:
@@ -251,7 +262,7 @@ Reading from a CSV file:
 
 ```r
 # Example of reading a csv file
-myiris <- read.csv("iris.csv")
+myiris <- read.csv("iris.csv", stringsAsFactors = FALSE)
 ```
 
 There are many other kinds of file formats and R can work with many of them. See:
@@ -295,28 +306,31 @@ The latter approach will bundle the code with the ouput as a single report
 
 Let's do an example of making and executing R scripts 
 
-Go to: File -> New File -> R Script
+Go to: *File -> New File -> R Script*
 
-A new tab should open in your Source pane "Untitled1". Lets save it as "onramp_iris_script.R
+A new tab should open in your Source pane "Untitled1". Lets save it as "onramp_iris_script.R".
 
-Next, we'll add some basic information using comments like our name, date and description
+Next, we'll add some basic information using comments like our name, date and description.
+
 
 ```r
-# Joe Coder
-# Date: September 30, 2020
+# Author: Joe Coder <joe.coder@example.com>
+# Last updated: September 30, 2020
+#
 # This script is an example of writing scripts in R using the iris dataset.
 ```
 
 ## Creating and Running R scripts
 
-Now, we can write executable code, commenting as we go to document what we're doing for ourselves and for others we share the code with.
+Now, we can write executable code, commenting as we go to document what we're 
+doing for ourselves and for others we share the code with.
 
 
 ```r
-# load example data
+# Load example data.
 data(iris)
 
-# inspect the "top" of the dataframe
+# Inspect the "top" of the dataframe.
 head(iris)
 ```
 
@@ -336,10 +350,10 @@ Next, we'll modify the dataframe. Let's add a variable that indicates where the 
 
 
 ```r
-# create a variable that indicates where the flowers were collected 
+# Create a variable that indicates where the flowers were collected. 
 iris$country <- "canada"
 
-# show the top of the dataframe
+# Show the top of the dataframe.
 head(iris)
 ```
 
@@ -355,11 +369,12 @@ head(iris)
 
 ## Creating and Running R scripts
 
-Let's calculate some important summary statistics and store them as variables to the environment
+Let's calculate some important summary statistics and store them as variables 
+to the environment.
 
 
 ```r
-# get the mean values for petal characteristics
+# Get the mean values for petal characteristics.
 petal_length_avg <- mean(iris$Petal.Length)
 petal_length_avg
 ```
@@ -378,7 +393,7 @@ petal_width_avg
 ```
 
 ```r
-# calculate the correlation between between petal length and width
+# Calculate the correlation between between petal length and width.
 petal_cor <- cor(x = iris$Petal.Length, y = iris$Petal.Width, method = "pearson")
 petal_cor
 ```
@@ -393,13 +408,13 @@ Lastly, we can plot our findings.
 
 
 ```r
-# plot the petal legths versus widths
+# Plot the petal legths versus widths.
 p <- plot(x = iris$Petal.Length, y = iris$Petal.Width, 
           xlab = "Petal Length (cm)", 
           ylab = "Petal Width (cm)")
 ```
 
-![](r_packages_sessions_scripts_files/figure-html/unnamed-chunk-16-1.png)<!-- -->
+![](r_packages_sessions_scripts_files/figure-html/unnamed-chunk-17-1.png)<!-- -->
 
 
 ## Creating and Running R scripts
@@ -408,10 +423,12 @@ After saving and closing your script you can open it and re-run it at a later ti
 To run a whole script you can press the "Run" button at the top left of the Source pane.
 
 To go line-by-line put the cursor next to a line and press "Shift" + "Enter" 
-* For Mac use: "CTRL + Return"
+
+* For Mac use: "CTRL" + "Return"
 
 To run a multiple lines, highlight the desired lines and press "Shift" + "Enter"
-* For Mac use: "CTRL + Return"
+
+* For Mac use: "CTRL" + "Return"
 
 ## 
 

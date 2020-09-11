@@ -17,8 +17,7 @@ output:
 
 You will learn:
 
-* What packages are
-* What a "library" is
+* What packages and libraries are
 * How to view your libraries
 * How to install and upgrade a package 
 * How to upgrade all of your packages
@@ -360,7 +359,7 @@ Lastly, we can plot our findings.
 
 ```{r}
 
-# plot the petal legths versus widths
+# Plot the petal legths versus widths.
 p <- plot(x = iris$Petal.Length, y = iris$Petal.Width, 
           xlab = "Petal Length (cm)", 
           ylab = "Petal Width (cm)")
@@ -374,10 +373,12 @@ After saving and closing your script you can open it and re-run it at a later ti
 To run a whole script you can press the "Run" button at the top left of the Source pane.
 
 To go line-by-line put the cursor next to a line and press "Shift" + "Enter" 
-* For Mac use: "CTRL + Return"
+
+* For Mac use: "CTRL" + "Return"
 
 To run a multiple lines, highlight the desired lines and press "Shift" + "Enter"
-* For Mac use: "CTRL + Return"
+
+* For Mac use: "CTRL" + "Return"
 
 ## 
 
