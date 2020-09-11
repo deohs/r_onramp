@@ -116,8 +116,6 @@ Welcome to RStudio! Next, we'll provide an orientation to:
 * Customization and Global options
 * File management
 
-
-    
 ## Orientation: Default Pane Locations
 
 1. If there is a file open, it will appear in the upper-left ("Source") pane
@@ -154,7 +152,7 @@ into memory.
 
 * A little bit of information about their structure and contents will be 
   displayed here. 
-* You can click an item to view it in the "Source" pane, often as a grid.
+* You can click an item to view it, often as a grid in the "Source" pane
 
 The "History" tab is for your command history. You can send commands from 
 your history to your Console tab in the Console pane or to the selected editor 
@@ -235,6 +233,8 @@ close the tab.
 Some tabs offer a menu of buttons with text labels beneath the tab. These allow
 you to perform operations related to the contents of the tab. Some of the buttons are pick-lists.
 
+Some tabs offer "refresh", "clear" and three dot (...) menu buttons.
+
 The "Files" tab offers a "breadcrumb" navigation feature under the row of buttons.
 
 ## Orientation: Menus and Buttons
@@ -248,7 +248,7 @@ operation.
 The menus, buttons, and pick-lists in the panes will vary depending on the
 content of the pane and the context of the operation you are performing.
 
-There is a button with an icon of a broom (or brush). The text associated
+There is a button with an icon of a whisk broom (or brush). The text associated
 with this button is "Clear" or "Clear All". You can use it to clear the 
 contents of the tab.
 
@@ -264,7 +264,7 @@ This opens a configuration settings window with navigation on the side.
 
 Here are some recommended settings:
 
-* Code -> (Editing) -> [x] Insert spaces for tab, Tab width 4
+* Code -> (Editing) -> [x] Insert spaces for tab, Tab width 2
     - ![](images/insert_spaces_for_tab.png)
 * Code -> (Display) -> [x] Show margin, Margin column 80
     - ![](images/show_margin.png)
@@ -282,7 +282,11 @@ create new folders.
 
 In RStudio on the Plasmid you will also upload and download files using this tab.
 
-The home drive for RStudio on Plasmid is your DEOHS H:// drive
+The home (~) folder for RStudio on Plasmid is your DEOHS H:// drive
+
+The three-dot (...) button on the Files tab prompts for a custom file path.
+
+RStudio offers a "Project" feature to make working with files easier.
 
 ## 
 
@@ -292,7 +296,7 @@ The home drive for RStudio on Plasmid is your DEOHS H:// drive
 
 ## How to install R and RStudio Desktop
 
-We will not be supporting local installations of R and RStudio during this introductory bootcamp. These instructions are here for reference if needed:
+We will not be spending time on local installations of R and RStudio during this introductory onramp. These instructions are here for reference if needed:
 
 1. [Download](https://cran.r-project.org/banner.shtml) the latest
    **_installer_** version of **_R_** available for your operating system.

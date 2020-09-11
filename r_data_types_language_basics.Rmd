@@ -25,6 +25,7 @@ You will learn:
 * The basics of R "data objects" and "classes"
 * The basic "primitive" data types in R
 * How to inspect the properties of data objects
+* How to create categorical variables in R
 * How to convert data objects to other types
 * How to access, assign and display data in R
 * How to call functions
@@ -34,9 +35,6 @@ You will learn:
 * What is unusual about R
 * The overall structure of the R language
 * The basic "higher order" data structures in R
-* How to create categorical variables in R
-* How to convert a data object from one structure to another
-
 
 ## Data Objects
 
@@ -51,13 +49,9 @@ objects are built upon these.
 also store functions, packages, connections, and other structures intended for 
 other uses. 
 
-In this module, we will focus on data objects -- those which are used 
-primarily for data storage and manipulation in memory.
-
 Like other objects, data objects have a *type* and a *class*. The type defines
-*how* the data are stored, while the class define *what* data are contained 
+*how* the data are stored, while the class defines *what* data are contained 
 within an object.
-
 
 ## Accessing Data
 
@@ -89,10 +83,9 @@ This value will be stored in your computer's memory for the duration of the
 current session, or until it is modified or deleted by you, your code, or your
 environment (execution context).
 
-
 ## Argument assignment with `=`
 
-The `=` symbol is the assignment operator, used within function calls.
+The `=` symbol is an additional assignment operator, most generally used within function calls.
 
 The `=` symbol tells R that the expected argument (parameter) `x` should take 
 the value of our `number` variable.
@@ -116,13 +109,13 @@ print(number)
 
 Just remember: 
 
-* use `<-` for variable assignment 
+* use `<-` for variable assignment (but you may also see `=` here too)
 
 ```{r, eval = FALSE}
 number <- 68.1
 ```
 
-* use `=` for argument assignment within function calls
+* use `=` for argument assignment within function calls (almost never `<-`)
 
 ```{r, eval = FALSE}
 print(x = number)
@@ -154,7 +147,7 @@ typeof(TRUE)    # "logical" -- either TRUE or FALSE
 Characters are entered with quotes around them (single or double quotes).
 
 ```{r}
-typeof('abcd')     # "character" -- a non-numeric "string" of text characters
+typeof('abcd')  # "character" -- a non-numeric "string" of text characters
 ```
 
 If you omit the quotes of an alphanumeric string, R will assume you are 
@@ -170,14 +163,14 @@ typeof(val)
 You can show the "higher order" (if any) type of a data object with `class()`.
 
 ```{r}
-typeof(1234)      # double  (the more basic "primitive" type)
-class(1234)       # numeric (the more general "higher order" type)
-typeof('abcd')    # character
-class('abcd')     # character
+typeof(1234)        # double  (the more basic "primitive" type)
+class(1234)         # numeric (the more general "higher order" type)
+typeof('abcd')      # character
+class('abcd')       # character
 ```
 
 
-## Data Types and Classes: Dates and Times
+## Dates and Times
 
 There are special classes for dates and time to allow for date/time arithmetic 
 and formatting.
@@ -190,7 +183,7 @@ my_date <- as.Date("2020-09-30", format = '%Y-%m-%d')
 my_datetime <- as.POSIXct("2020-09-30 12:00:", tz = "US/Pacific")
 ```
 
-## Data Types and Classes: Single-Value (Scalar) Data Types
+## Single-Value (Scalar) Data Types
 
 Data types consisting of only a single value are also called "scalar" types.
 
@@ -217,7 +210,7 @@ country
 class(country)
 ```
 
-This looks like a characters with the additional attribute of "Levels", 
+This looks like a character variable with the additional attribute of "Levels", 
 where the levels are the unique values. But how is this implemented?
 
 ## Factors
@@ -250,7 +243,6 @@ Here, we created three vectors, which we may describe as follows:
 * `origin` is a factor vector containing countries of origin
 * `height` is a numeric vector containing heights in inches
 * `weight` is a numeric vector containing weights in pounds
-
 More technically speaking, a vector is an ordered collection of one or more 
 individual values of the same data type. 
 
@@ -272,7 +264,7 @@ mat
 
 You can store a two dimensional matrix of data (a "table") as a data frame. This
 is the most common way to work with data in R. A data frame is often constructed
-from one or more vectors.
+from one or more vectors, where each vector becomes a column.
 
 ```{r}
 df <- data.frame(id, origin, height, weight)
@@ -323,7 +315,6 @@ spreadsheet.
 
 However, unlike a spreadsheet, you will not be able to manipulate
 your data in this display.
-
 
 ## Accessing Data Elements: Indexing
 
@@ -377,7 +368,7 @@ sqrt(2)
 R allows you to perform calculations on all items in a vector or all rows of a 
 data frame at the same time. 
 
-Operations that allow this are called *vectorized* operations. They are often 
+Operations that allow this are called *vectorized* operations. They may be 
 much faster than the alternatives (e.g. "loops"). 
 
 ```{r}

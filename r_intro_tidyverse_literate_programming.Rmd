@@ -18,18 +18,16 @@ suppressMessages(library(knitr))
 opts_chunk$set(tidy=FALSE, cache=TRUE, echo=TRUE, message=FALSE)
 ```
 
-
 ## Learning Objectives
 
 You will learn:
 
 * What literate programming is and why it's important 
 * How to use R Markdown for literate programming
-* What the tidyverse is
+* What the "tidyverse" is
 * What data "wrangling" is
 * Packages and functions used to tidy and wrangle data in R
 * How to tidy and wrangle data with R
-
 
 ## Reproducibility 
 
@@ -46,7 +44,8 @@ We should always be able to go from raw data to final results at any time ...
 *and always get the same results* from the same data and the same analysis*.
 
 `*` Even if you are doing modeling with randomly-generated values, you can set
-the *seed* to produce the same values each time you run the analysis.
+the *seed* to produce the same values each time you run the analysis. There are
+situations where you may encounter small rounding differences, however.
 
 ## Literate Programming
 
@@ -62,11 +61,10 @@ verify the results (including plots and figures).
 
 There are two main platforms for literate programming:
 
-* **_Python_**: Jupyter Notebook (a future topic!)
-* **_R_**: R Markdown and *knitr* (today's focus)
+* **_Python_** and other languages: Jupyter Notebook (a future topic!)
+* **_R_**: R Markdown with *knitr* (today's focus) and [R Notebooks](https://blog.rstudio.com/2016/10/05/r-notebooks)
 
 Both platforms can be used with other programming languages or a mix of them.
-
 
 ## R Markdown and *knitr*
 
@@ -83,11 +81,14 @@ RStudio.
 
 You need the R packages *htmltools*, *rmarkdown* and *knitr*.
 
-```{r, eval=FALSE}
+The first time to try to "knit" in RStudio, you will likely be prompted to 
+install these packages. If so, go ahead and install them as prompted.
 
+Otherwise, you can install them manually:
+
+```{r, eval=FALSE}
 install.packages(c("htmltools", "rmarkdown", "knitr"), dependencies = TRUE)
 ```
-
 
 ## R Markdown Syntax
 [R Markdown](https://rmarkdown.rstudio.com/) is a "wiki" syntax based on 
@@ -136,20 +137,19 @@ Be sure to save it! "onramp_example.Rmd" works
 
 ![](images/Rmd_example.png)
 
-
 ## Introduction to the Tidyverse
 
 Before we get into data wrangling, let's look at the [Tidyverse](https://www.tidyverse.org/)
 
-"The tidyverse is an opinionated collection of R packages designed for data science. 
-All packages share an underlying design philosophy, grammar, and data structures."
+<div class="columns-2">
 
-```{r eval=FALSE, include=FALSE}
-# install all of the tidyverse packages to start (this might take a little time)
-install.packages("tidyverse")
-```
+![](images/tidyverse.png)
 
-There are tidyverse packages for data wrangling, modeling, and visualization.
+- "The tidyverse is an opinionated collection of R packages designed for data science." 
+- "All packages share an underlying design philosophy, grammar, and data structures."
+- There are tidyverse packages for data wrangling, modeling, and visualization.
+
+</div>
 
 ## Data wrangling with *dplyr*
 
@@ -301,25 +301,23 @@ airquality_may <- airquality %>%
 Let's take a look.
 
 ```{r}
-
 # show the dataframe
 head(airquality_may)
 ```
 
 ## Wrangle *airquality*
 
-What if we're interested in the average ozone and temperature by month? Would we have to repeat this process for each month? dplyr has easy and powerful functions to perform data wrangling tasks on groups: `group_by()` and `summarise()`
+What if we're interested in the average ozone and temperature by month? Would we have to repeat this process for each month? *dplyr* has easy and powerful functions to perform data wrangling tasks on groups: `group_by()` and `summarise()`
 
 ```{r}
-
-# average by month, note the argument `na.rm = TRUE` is required to ignore the 
-# NA values. Otherwise NA would be returned 
+# Average by month, using the argument `na.rm = TRUE` to ignore the NA values.
+# If you omit `na.rm = TRUE`, then any NAs will cause the mean to be NA. 
 airquality_by_month <- airquality %>% 
   
-  # group dataframe by month
+  # Group dataframe by month
   group_by(Month) %>% 
   
-  # calculate average ozone concentration and temperature
+  # Calculate average ozone concentration and temperature
   summarise(Ozone_avg = mean(Ozone, na.rm = TRUE), 
             Temp_avg = mean(Temp, na.rm = TRUE))
 
@@ -328,9 +326,8 @@ airquality_by_month <- airquality %>%
 ## Wrangle *airquality*
 
 ```{r}
-# show new dataframe
+# Show new dataframe
 airquality_by_month
-
 ```
 
 
