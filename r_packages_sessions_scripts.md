@@ -154,7 +154,7 @@ if (!require("pacman"))
   install.packages("pacman", repos = "http://cran.r-project.org")
 
 # Use the pacman function `p_load()` to load a list of packages
-p_load(dplyr, tidyr, stringr, ggplot2)
+pacman::p_load(dplyr, tidyr, stringr, ggplot2)
 ```
 
 That may not seem any better than `install.packages()` and `library()`, 
