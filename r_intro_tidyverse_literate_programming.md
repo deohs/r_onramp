@@ -11,6 +11,8 @@ output:
     keep_md: yes
     logo: images/logo_128.png
     smaller: yes
+editor_options: 
+  chunk_output_type: console
 ---
 
 
@@ -89,6 +91,7 @@ install.packages(c("htmltools", "rmarkdown", "knitr"), dependencies = TRUE)
 ```
 
 ## R Markdown Syntax
+
 [R Markdown](https://rmarkdown.rstudio.com/) is a "wiki" syntax based on 
 [Markdown](https://daringfireball.net/projects/markdown/). Here is an 
 example:
@@ -498,8 +501,13 @@ airquality_by_month <- airquality %>%
   
   # Calculate average ozone concentration and temperature.
   summarise(Ozone_avg = mean(Ozone, na.rm = TRUE), 
-            Temp_avg = mean(Temp, na.rm = TRUE))
+            Temp_avg = mean(Temp, na.rm = TRUE),
+            .groups = "keep")
 ```
+
+The last argument, `.groups` specifies how to leave the grouping when the 
+operation is finished. In this case, we "keep" the grouping as it is. (This is 
+an "experimental" feature as of *dplyr* 1.0.2.)
 
 ## Wrangle *airquality*
 
