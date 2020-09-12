@@ -131,10 +131,10 @@ Basically, when posting questions:
     - By Roger Peng - YouTube - **free**
     - See: [his books](https://leanpub.com/u/rdpeng)
     - See also: [Coursera Data Science Specialization](https://www.coursera.org/specializations/jhu-data-science), **free to audit with registration**
-* [Up and Running with R](http://www.lynda.com/R-tutorials/Up-Running-R/120612-2.html) (2-1/2 hours)
-    - By Barton Poulson - Lynda.com
-    - Login [through SPL](https://ezproxy.spl.org/login?url=http://lynda.com/portal/sip?org=spl.org) or [through UW](https://lnkd.in/ge35aet)
-    - See: [R Statistics Essential Training](https://www.lynda.com/R-tutorials/R-Statistics-Essential-Training/142447-2.html) (6 hours)
+* [Learning R](https://www.linkedin.com/learning/learning-r-2) (3 hours)
+    - By Barton Poulson - LinkedIn (Lynda.com)
+    - Login [through UW](https://lnkd.in/ge35aet)
+    - See: [Master R for Data Science](https://www.linkedin.com/learning/paths/master-r-for-data-science) learning path (9 courses, 20 hours)
 * [R for the Intimidated](https://www.datacamp.com/courses/r-for-the-intimidated) (2 hours)
     - By Annika Salzberg - DataCamp - **free with registration**
 * [Statistics and R for the Life Sciences](https://www.edx.org/course/statistics-r-life-sciences-harvardx-ph525-1x)
