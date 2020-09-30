@@ -480,6 +480,13 @@ print(p)
 
 ![](r_intro_tidyverse_wrangling_files/figure-html/unnamed-chunk-17-1.png)<!-- -->
 
+<<<<<<< HEAD
+=======
+## Render Markdown Document
+
+Next, let's render the document using the "Knit" button.
+
+>>>>>>> 4ee500d819cd3b72311bcb549eefe7faf0a485f9
 ## 
 
 
