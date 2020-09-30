@@ -88,6 +88,23 @@ be covering the other alternatives.
 * Easier to learn and teach on because it's centrally managed by EHIT 
 * This "onramp" is geared towards using RStudio Server on Plasmid
 
+## Ways to use RStudio
+
+### RStudio Cloud
+
+[Rstudio Cloud](https://rstudio.cloud/) is a internet-based option to run Rstudio: [https://rstudio.cloud/](https://rstudio.cloud/). 
+
+Eliminates hardware and software configuration and management required when running R & RStudio locally.
+
+Requires
+
+* Internet connection & browser
+* Account sign-up
+
+Free for individual use with some restrictions (e.g. number of projects, memory), and has paid subscription upgrade.
+
+## Ways to use RStudio
+
 ### Download and run locally
 
 * The RStudio Desktop application is available for free on the [internet](https://www.rstudio.com/products/rstudio/download/)
