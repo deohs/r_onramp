@@ -26,39 +26,6 @@ You will learn:
 * Packages and functions used to tidy and wrangle data in R
 * How to tidy and wrangle data with R
 
-## Reproducibility 
-
-For the purpose of this discussion, let's define:
-
-* **_Replicate_**: to repeat a study (with new samples and data)
-* **_Reproduce_**: to regenerate the results of an analysis (with the same data)
-
-Our studies may be difficult to fully *replicate* ... but our analysis should always be *reproducible*.
-
-Or in other words:
-
-We should always be able to go from raw data to final results at any time ...
-*and always get the same results* from the same data and the same analysis*.
-
-`*` Even if you are doing modeling with randomly-generated values, you can set
-the *seed* to produce the same values each time you run the analysis. There are
-situations where you may encounter small rounding differences, however.
-
-In the light of reproducibility, our goal is produce a script that another person can run and get the same results.
-
-## Literate Programming
-
-There are additional "Literate Programming" tools, that improve reproducibility, 
-in which interspersed explanatory text and code make a report that is executable 
-(including rendering figures).
-
-The primary tool in Rstudio is [R Markdown](https://rmarkdown.rstudio.com/).
-
-We won't cover R Markdown today, but it is an imporant topic for the future. 
-
-![Markdown document rendered as a webpage. Image by: [RStudio Blog](https://blog.rstudio.org/2014/06/)](images/storms-004.png)
-
-
 ## Introduction to the Tidyverse
 
 Before we get into data wrangling, let's look at the [Tidyverse](https://www.tidyverse.org/)
@@ -497,7 +464,4 @@ MM.      ,MP   MM    MM 8M"""""" `YMMMa.   MM     MM 8M     M8 MM    MM  `YMMMa.
        `bood'
 </pre>
 <!-- http://patorjk.com/software/taag/#p=display&f=Georgia11&t=Questions%3F%0A -->
-
-
-
 
