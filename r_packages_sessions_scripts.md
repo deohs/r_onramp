@@ -24,7 +24,7 @@ You will learn:
 * How to load a package into memory
 * How to unload and uninstall a package 
 * What an R "session" is 
-* How to save, load and store an R session 
+* What an RStudio project is 
 * How to read and write data files
 * How to edit, save, and run scripts
 
@@ -189,9 +189,6 @@ Let's make a new RStudio project named "r_onramp".
 
 File --> New Project...
 
-![](http://www.rstudio.com/images/docs/projects_new.png)
-
-## RStudio Projects
 ![](http://www.rstudio.com/images/docs/projects_new.png)
 
 New Directory --> New Project
