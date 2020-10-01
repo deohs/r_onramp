@@ -174,31 +174,30 @@ An R session:
 * starts by loading a *profile* (created for you with defaults if no custom *profile* found)
 * has a collection of open data objects, called the **_workspace_**
 
-## Saving and Loading R Sessions
+## RStudio Projects
 
-How do you save an R session?
+[RStudio projects](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects) 
+are an easy way to divide work into multiple contexts. An RStudio project has its own:
 
-* Answer 'yes' when prompted, upon quitting your session.
-* Save your command history and workspace with R commands or menu choices.
+* working directory
+* workspace
+* history
+* source documents
 
-Example: Save your command history to the current folder (as `.Rhistory`):
+## RStudio Projects
+Let's make a new RStudio project named "r_onramp".
 
+File --> New Project...
 
-```r
-savehistory()
-```
+![](http://www.rstudio.com/images/docs/projects_new.png)
 
-Example: Save the workspace (data objects) to the current folder (as `.RData`):
+## RStudio Projects
+![](http://www.rstudio.com/images/docs/projects_new.png)
 
+New Directory --> New Project
 
-```r
-save.image()
-```
+We can make "r_onramp" a subdirectory of: "~/Home" and click "Create Project"
 
-In RStudio, you have the menu choices: 
-
-* Session -> Save Workspace
-* Session -> Load Workspace As...
 
 ## R Working Directory
 
@@ -288,18 +287,6 @@ Best Practices
 * Run your code from scripts instead of the prompt.
 * Script your analysis to make your work more reproducible, which is very important.
 * You can share your code as a script so others can verify your work.
-
-## Running R Scripts
-
-You can run code from an R script by:
-
-* selecting some of the code and running just that code
-* running a single line (or block) of code
-* saving the file and running ("sourcing") the whole file
-* saving and rendering your script with a tool like *knitr* to make a report
-
-The latter approach will bundle the code with the ouput as a single report 
-(PDF, HTML, etc.) - more on this to come!
 
 
 ## Creating and Running R scripts
@@ -414,13 +401,14 @@ p <- plot(x = iris$Petal.Length, y = iris$Petal.Width,
           ylab = "Petal Width (cm)")
 ```
 
-![](r_packages_sessions_scripts_files/figure-html/unnamed-chunk-17-1.png)<!-- -->
+![](r_packages_sessions_scripts_files/figure-html/unnamed-chunk-15-1.png)<!-- -->
 
 
 ## Creating and Running R scripts
 After saving and closing your script you can open it and re-run it at a later time, or send it to someone to run themselves.
 
-To run a whole script you can press the "Run" button at the top left of the Source pane.
+To run a whole script, open it and press the "Run" button at the top left of the Source pane. 
+You can also "source" a saved `.R` file using the `source()` function.
 
 To go line-by-line put the cursor next to a line and press "Shift" + "Enter" 
 
