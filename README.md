@@ -15,9 +15,7 @@ Topics:
    - indexing
    - assignment
 3. [Packages, sessions, and scripts](r_packages_sessions_scripts.md)
-4. [Introduction to the Tidyverse and literate programming](r_intro_tidyverse_literate_programming.md)
+4. [Introduction to the Tidyverse and data wrangling](r_intro_tidyverse_wrangling.md)
    - demonstration of Tidyverse functions
    - data wrangling
-   - Rmarkdown
-   - knitr
 5. [Resources and getting help](r_resources_and_getting_help.md)
