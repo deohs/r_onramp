@@ -182,15 +182,18 @@ are some of our favorites.
 
 ## More of Our Favorite R Books
 
-You can access these for "free" also. The [UW](https://www.lib.washington.edu/) has all of these (in print and ebook editions) and the Seattle Public Library ([SPL](http://www.spl.org/))
-has two of these as eBooks through O'Reilly's Safari website. Seattle residents
-may obtain a free SPL [library card](http://www.spl.org/using-the-library/get-started/get-a-library-card) to gain access to these eBooks. The title text
-has been linked to the publisher's website for each book.
+These ebooks are from the developers of the Tidyverse family of packages:
 
 * [R for Data Science](https://r4ds.had.co.nz/)
     - by Hadley Wickham & Garrett Grolemund
 * [Advanced R](http://adv-r.had.co.nz/)
     - by Hadley Wickham
+
+The [UW](https://www.lib.washington.edu/) has all of these (in print and ebook 
+editions) and the Seattle Public Library ([SPL](http://www.spl.org/)) has two 
+of these as eBooks through O'Reilly's Safari website. Seattle residents may 
+obtain a free SPL [library card](http://www.spl.org/using-the-library/get-started/get-a-library-card) to gain access to these eBooks. The title text has been linked to the publisher's website for each book.
+
 * [R for Everyone: Advanced Analytics and Graphics](http://www.jaredlander.com/r-for-everyone/)
     - by Jared P. Lander ( [GOOG](https://www.google.com/search?tbo=p&tbm=bks&q=intitle:%22R+for+Everyone%3A+Advanced+Analytics+and+Graphics%22&num=10&gws_rd=ssl) | [AMZN](http://www.amazon.com/dp/0321888030/?tag=5308-0610-7646) | [UW](http://alliance-primo.hosted.exlibrisgroup.com/primo_library/libweb/action/search.do?fn=search&ct=search&vid=UW&vl%28753972432UI0%29=title&vl%281UIStartWith0%29=starts+with&vl%28freeText0%29=%22R+for+Everyone%3A+Advanced+Analytics+and+Graphics%22&Submit=Search) )
 * [R in Action: Data Analysis and Graphics with R](https://www.manning.com/books/r-in-action-second-edition) 

@@ -80,16 +80,17 @@ be covering the other alternatives.
 
 ## Ways to use RStudio
 
-### RStudio Server ("Plasmid") accessed through a web browser
+### RStudio Server accessed through a web browser
 
-* DEOHS runs RStudio Server on Plasmid, a Linux virtual machine
-* Link: [https://plasmid.deohs.washington.edu](https://plasmid.deohs.washington.edu)
-* Free for DEOHS affiliates (students, staff, faculty, postdocs, etc.) to use 
-* Requires UW NetID and DEOHS account
-* UW Campus only (or remotely through [Husky OnNet VPN](https://itconnect.uw.edu/connect/uw-networks/about-husky-onnet/))
-* Easily access your departmental storage (i.e., network "drives")
-* Easier to learn and teach on because it's centrally managed by EHIT 
-* This "onramp" is geared towards using RStudio Server on Plasmid
+* Easier to learn and teach on because it's centrally managed by IT.
+* SPH IT is preparing a server for SPH use (all depts.), but it's not ready yet.
+* DEOHS runs RStudio Server on "Plasmid", a Linux virtual machine.
+   - Link: [https://plasmid.deohs.washington.edu](https://plasmid.deohs.washington.edu)
+   - Free for DEOHS affiliates (students, staff, faculty, postdocs, etc.) to use. 
+   - Requires UW NetID and DEOHS account.
+   - Access directy from UW Campus or remotely through [Husky OnNet VPN](https://itconnect.uw.edu/connect/uw-networks/about-husky-onnet/).
+   - Easily access your departmental storage (i.e., network "drives").
+* This "onramp" is geared towards using RStudio Server, but any RStudio will work.
 
 ## Ways to use RStudio
 
@@ -104,20 +105,22 @@ Requires
 * Internet connection & browser
 * Account sign-up
 
-Free for individual use with some restrictions (e.g. number of projects, memory), and has paid subscription upgrade.
+Free for individual use with some restrictions (e.g. number of projects, memory), 
+and has paid subscription upgrade.
 
 ## Ways to use RStudio
 
 ### Download and run locally
 
-* The RStudio Desktop application is available for free on the [internet](https://www.rstudio.com/products/rstudio/download/)
+* The RStudio Desktop application is available for free on the [internet](https://www.rstudio.com/products/rstudio/download/).
 * We will not focus on local installation or use during this introductory onramp,
 but some instructions are at the end of this presentation.
 
 ## Accessing the DEOHS Plasmid Server (from off-campus)
 
-* First, make sure the [Husky OnNet VPN](https://itconnect.uw.edu/connect/uw-networks/about-husky-onnet/) software installed on your computer
-* Next, launch the VPN app ("Big-IP Edge Client") and sign into the UW network
+* This option requires a DEOHS departmental comuting account.
+* First, make sure the [Husky OnNet VPN](https://itconnect.uw.edu/connect/uw-networks/about-husky-onnet/) software installed on your computer.
+* Next, launch the VPN app ("Big-IP Edge Client") and sign into the UW network.
 
 ![](images/big_ip_edge_client.png)
 

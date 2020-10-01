@@ -178,6 +178,26 @@ are an easy way to divide work into multiple contexts. An RStudio project has it
 * source documents
 
 ## RStudio Projects
+
+Using an RStudio project will ...
+
+- make it easier to work with your files because they are in a common folder
+- allow you to avoid common coding pitfalls such as:
+    - using non-reproducible file paths when reading and writing files
+    - having to use `setwd()` and `getwd()` to control the working directory
+
+When you open an RStudio project, the working directory is set as the project folder.
+
+Therefore, code you run after opening the project will use this folder as the 
+working directory by default.
+
+So, if you keep your data and other folders within the project folder, then 
+the paths to these folders will be relative to the project folder.
+
+This way, you code will be more portable and reproducible.
+
+## RStudio Projects
+
 Let's make a new RStudio project named "r_onramp".
 
 File --> New Project...
