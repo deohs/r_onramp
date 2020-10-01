@@ -311,7 +311,7 @@ The home (~) folder for RStudio on Plasmid is your DEOHS H:// drive
 
 The three-dot (...) button on the Files tab prompts for a custom file path.
 
-RStudio offers a "Project" feature to make working with files easier.
+RStudio offers a "Project" feature to make working with files easier (more on this later).
 
 ## 
 
