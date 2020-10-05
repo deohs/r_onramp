@@ -1,6 +1,6 @@
 # R onramp
 
-Tutorial presentations for UW DEOHS R onramp.
+Tutorial presentations for UW SPH R onramp.
 
 Topics: 
 
