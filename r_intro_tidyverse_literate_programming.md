@@ -136,7 +136,7 @@ Be sure to save it! The filename "onramp_example.Rmd" will work for now.
 * Text
 * Code chunks
 
-![](images/Rmd_example.png)
+![](images/rmd_example.png)
 
 ## Introduction to the Tidyverse
 
@@ -347,9 +347,9 @@ head(airquality)
 
 What happened here? Where did the `Year` column go? 
 
-In our previous step, a dataframe printed to the console (if you entered the command at the promt) or displayed below the code chunck (if you ran the command from the Rmarkdown document) with the new `Year` variable.
+In our previous step, a dataframe printed to the console (if you entered the command at the prompt) or displayed below the code chunk (if you ran the command from the Rmarkdown document) with the new `Year` variable.
 
-We performed a task on the original `airquality` object, but since we did not make a new assignment (e.g., with `<-`), the change was not "saved" to the object in the environment.
+We used `airquality` object, but since we did not make a new assignment (e.g., with `<-`), the change was not "saved" to the object in the environment.
 
 ## Wrangle *airquality*
 
@@ -519,6 +519,7 @@ airquality_by_month
 
 ```
 ## # A tibble: 5 x 3
+## # Groups:   Month [5]
 ##   Month Ozone_avg Temp_avg
 ##   <int>     <dbl>    <dbl>
 ## 1     5      23.6     65.5
