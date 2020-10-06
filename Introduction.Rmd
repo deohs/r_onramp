@@ -83,12 +83,15 @@ be covering the other alternatives.
 ### RStudio Server accessed through a web browser
 
 * Easier to learn and teach on because it's centrally managed by IT.
-* SPH IT is preparing a server for SPH use (all depts.), but it's not ready yet.
-* DEOHS runs RStudio Server on "Plasmid", a Linux virtual machine.
+* SPH runs an RStudio Server on "rstudio.sph" for use by all SPH departments.
+   - Link: [https://rstudio.sph.washington.edu](https://rstudio.sph.washington.edu)
+   - Free for SPH affiliates (students, staff, faculty, postdocs, etc.) to use. 
+   - Requires UW NetID.
+* DEOHS runs as RStudio Server on "Plasmid", a Linux virtual machine.
    - Link: [https://plasmid.deohs.washington.edu](https://plasmid.deohs.washington.edu)
    - Free for DEOHS affiliates (students, staff, faculty, postdocs, etc.) to use. 
    - Requires UW NetID and DEOHS account.
-   - Access directy from UW Campus or remotely through [Husky OnNet VPN](https://itconnect.uw.edu/connect/uw-networks/about-husky-onnet/).
+   - Access directly from UW Campus or remotely through [Husky OnNet VPN](https://itconnect.uw.edu/connect/uw-networks/about-husky-onnet/).
    - Easily access your departmental storage (i.e., network "drives").
 * This "onramp" is geared towards using RStudio Server, but any RStudio will work.
 
