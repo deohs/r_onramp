@@ -63,7 +63,14 @@ Common functions include:
 # Load pacman, installing if needed
 if (!require("pacman")) 
   install.packages("pacman", repos = "http://cran.r-project.org")
+```
 
+```
+## Warning in library(package, lib.loc = lib.loc, character.only = TRUE,
+## logical.return = TRUE, : there is no package called 'pacman'
+```
+
+```r
 # Load other packages, installing as needed.
 pacman::p_load(dplyr, ggplot2)
 ```
@@ -235,9 +242,9 @@ head(airquality)
 
 What happened here? Where did the `Year` column go? 
 
-In our previous step, a dataframe printed to the console (if you entered the command at the promt) or displayed below the code chunck (if you ran the command from the Rmarkdown document) with the new `Year` variable.
+In our previous step, a dataframe printed to the console (if you entered the command at the prompt) or displayed below the code chunk (if you ran the command from the Rmarkdown document) with the new `Year` variable.
 
-We performed a task on the original `airquality` object, but since we did not make a new assignment (e.g., with `<-`), the change was not "saved" to the object in the environment.
+We used the `airquality` object, but since we did not make a new assignment (e.g., with `<-`), the change was not "saved" to the object in the environment.
 
 ## Wrangle *airquality*
 
