@@ -87,7 +87,7 @@ be covering the other alternatives.
    - Link: [https://rstudio.sph.washington.edu](https://rstudio.sph.washington.edu)
    - Free for SPH affiliates (students, staff, faculty, postdocs, etc.) to use. 
    - Requires UW NetID.
-* DEOHS runs as RStudio Server on "Plasmid", a Linux virtual machine.
+* DEOHS runs an RStudio Server on "Plasmid" for use by DEOHS.
    - Link: [https://plasmid.deohs.washington.edu](https://plasmid.deohs.washington.edu)
    - Free for DEOHS affiliates (students, staff, faculty, postdocs, etc.) to use. 
    - Requires UW NetID and DEOHS account.
