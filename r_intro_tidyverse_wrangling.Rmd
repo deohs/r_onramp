@@ -283,7 +283,7 @@ p <- ggplot(data = airquality_may) +
 
 ## Make a plot using *ggplot2*
 
-```{r}
+```{r show_plot}
 # Show the plot.
 print(p)
 ```

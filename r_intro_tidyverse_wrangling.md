@@ -452,7 +452,7 @@ p <- ggplot(data = airquality_may) +
 print(p)
 ```
 
-![](r_intro_tidyverse_wrangling_files/figure-html/unnamed-chunk-17-1.png)<!-- -->
+![](r_intro_tidyverse_wrangling_files/figure-html/show_plot-1.png)<!-- -->
 
 ## 
 
