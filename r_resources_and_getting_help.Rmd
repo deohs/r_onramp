@@ -121,7 +121,7 @@ support forum.
 
 Basically, when posting questions:
 
-* Do you homework carefully
+* Do your homework carefully
 * Be clear, specific, and thorough
 * Be respectful and mature
 * Provide a [reproducible example](http://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example%20) of your problem

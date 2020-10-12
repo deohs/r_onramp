@@ -11,6 +11,8 @@ output:
     keep_md: yes
     logo: images/logo_128.png
     smaller: yes
+editor_options: 
+  chunk_output_type: console
 ---
 
 ## Learning Objectives
