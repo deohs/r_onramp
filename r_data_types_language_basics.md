@@ -335,7 +335,7 @@ str(country)
 ```
 
 ```
-##  Factor w/ 3 levels "canada","mexico",..: 3 1 2
+##  Factor w/ 3 levels "canada","mexico",..: 3 1 2 3 2
 ```
 
 ```r
@@ -373,6 +373,7 @@ Here, we created three vectors, which we may describe as follows:
 * `origin` is a factor vector containing countries of origin
 * `height` is a numeric vector containing heights in inches
 * `weight` is a numeric vector containing weights in pounds
+
 More technically speaking, a vector is an ordered collection of one or more 
 individual values of the same data type. 
 
