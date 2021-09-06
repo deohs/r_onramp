@@ -518,7 +518,7 @@ airquality_by_month
 ```
 
 ```
-## # A tibble: 5 x 3
+## # A tibble: 5 × 3
 ## # Groups:   Month [5]
 ##   Month Ozone_avg Temp_avg
 ##   <int>     <dbl>    <dbl>
