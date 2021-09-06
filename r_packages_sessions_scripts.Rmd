@@ -204,6 +204,9 @@ Let's make a new RStudio project named "r_onramp".
 
 File --> New Project...
 
+
+## RStudio Projects
+
 ![](http://www.rstudio.com/images/docs/projects_new.png)
 
 New Directory --> New Project
