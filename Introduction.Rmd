@@ -121,7 +121,7 @@ but some instructions are at the end of this presentation.
 
 ## Accessing the DEOHS Plasmid Server (from off-campus)
 
-* This option requires a DEOHS departmental comuting account.
+* This option requires a DEOHS departmental computing account.
 * First, make sure the [Husky OnNet VPN](https://itconnect.uw.edu/connect/uw-networks/about-husky-onnet/) software installed on your computer.
 * Next, launch the VPN app ("Big-IP Edge Client") and sign into the UW network.
 

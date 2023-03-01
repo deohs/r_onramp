@@ -118,7 +118,7 @@ but some instructions are at the end of this presentation.
 
 ## Accessing the DEOHS Plasmid Server (from off-campus)
 
-* This option requires a DEOHS departmental comuting account.
+* This option requires a DEOHS departmental computing account.
 * First, make sure the [Husky OnNet VPN](https://itconnect.uw.edu/connect/uw-networks/about-husky-onnet/) software installed on your computer.
 * Next, launch the VPN app ("Big-IP Edge Client") and sign into the UW network.
 
@@ -177,9 +177,9 @@ into memory.
 
 * A little bit of information about their structure and contents will be 
   displayed here. 
-* You can click an item to view it, often as a grid in the "Source" pane
+* You can click an item to view it, often as a grid in the "Source" pane.
 
-The "History" tab is for your command history. You can send commands from 
+The "History" tab stores your command history. You can send commands from 
 your history to your Console tab in the Console pane or to the selected editor 
 tab in the Source pane.
 
@@ -217,14 +217,14 @@ There may be other tabs for additional program output in the Console pane.
 
 For example, output from pressing the "Knit" button will appear in a "R Markdown" tab in the Console pane.
 
-There is also a Terminal tab for interacting with the command "shell" of your operating system, such as "Bash"
+There is also a Terminal tab for interacting with the command "shell" of your operating system, such as "Bash."
 
 ## How the Console prompt works
 
 Input:
 
 * The prompt waits for R commands
-* You type a, R command at the prompt and press *Enter* (or *Return*)
+* You type an R command at the prompt and press *Enter* (or *Return*)
 * R will parse your commands and try execute them
 
 Output:  
@@ -261,7 +261,7 @@ close the tab.
 Some tabs offer a menu of buttons with text labels beneath the tab. These allow
 you to perform operations related to the contents of the tab. Some of the buttons are pick-lists.
 
-Some tabs offer "refresh", "clear" and three dot (...) menu buttons.
+Some tabs offer "refresh," "clear" and three dot (...) menu buttons.
 
 The "Files" tab offers a "breadcrumb" navigation feature under the row of buttons.
 
@@ -277,7 +277,7 @@ The menus, buttons, and pick-lists in the panes will vary depending on the
 content of the pane and the context of the operation you are performing.
 
 There is a button with an icon of a whisk broom (or brush). The text associated
-with this button is "Clear" or "Clear All". You can use it to clear the 
+with this button is "Clear" or "Clear All." You can use it to clear the 
 contents of the tab.
 
 Some tabs offer a Search box with a magnifying glass icon. Tabs with this
@@ -299,7 +299,7 @@ Here are some recommended settings:
 
 These settings will help you write more readable code. (More on this later.)
 
-You may also wish to customize your pane layout in "Pane Layout".
+You may also wish to customize your pane layout in "Pane Layout."
 
 ## File Management
 
