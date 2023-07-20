@@ -73,7 +73,7 @@ opts_chunk$set(tidy=FALSE, cache=TRUE, echo=TRUE, message=FALSE)
 * You can use it for free on most computer systems
 * It is very popular, so your collaborators may already be using it
 * Very few alternatives (R-GUI, JGR, Visual Studio) are as full-featured
-* It performs well, is designed well, and is backed by a respected company
+* It performs well, is designed well, and is backed by a respected public benefit corporation, [posit](https://posit.co/)
 
 We are going to gear our instruction towards the use of RStudio and will not 
 be covering the other alternatives.
@@ -97,9 +97,9 @@ be covering the other alternatives.
 
 ## Ways to use RStudio
 
-### RStudio Cloud
+### posit Cloud
 
-[Rstudio Cloud](https://rstudio.cloud/) is a internet-based option to run Rstudio: [https://rstudio.cloud/](https://rstudio.cloud/). 
+[posit Cloud](https://posit.cloud/) provides an internet-based option to run Rstudio: [https://posit.cloud/](https://posit.cloud/). 
 
 Eliminates hardware and software configuration and management required when running R & RStudio locally.
 
@@ -115,14 +115,14 @@ and has paid subscription upgrade.
 
 ### Download and run locally
 
-* The RStudio Desktop application is available for free on the [internet](https://www.rstudio.com/products/rstudio/download/).
+* The RStudio Desktop application is available for free on the [internet](https://posit.co/download/rstudio-desktop/).
 * We will not focus on local installation or use during this introductory onramp,
 but some instructions are at the end of this presentation.
 
 ## Accessing the DEOHS Plasmid Server (from off-campus)
 
 * This option requires a DEOHS departmental computing account.
-* First, make sure the [Husky OnNet VPN](https://itconnect.uw.edu/connect/uw-networks/about-husky-onnet/) software installed on your computer.
+* First, make sure [Husky OnNet VPN](https://itconnect.uw.edu/connect/uw-networks/about-husky-onnet/) is installed on your computer.
 * Next, launch the VPN app ("Big-IP Edge Client") and sign into the UW network.
 
 ![](images/big_ip_edge_client.png)
@@ -167,7 +167,7 @@ When text files are opened in RStudio, the tab they are displayed in is a
 full-featured text editor with syntax highlighting, search-and-replace and
 many other features.
 
-*You can select syntax highlighting for many programming languages in a pick list.
+* You can select syntax highlighting for many programming languages in a pick list.
 * Editor and other options may be set under Tools -> Global Options.
 
 ## Orientation: Environment Pane
@@ -311,7 +311,7 @@ The Files tab of the Viewer pane is useful for file navigation and management.
 You can navigate to your files and move, copy, rename, and delete them. You can
 create new folders. 
 
-In RStudio on the Plasmid you will also upload and download files using this tab.
+In RStudio on Plasmid you will also upload and download files using this tab.
 
 The home (~) folder for RStudio on Plasmid is your DEOHS H:// drive
 
@@ -334,7 +334,7 @@ We will not be spending time on local installations of R and RStudio during this
      - Run the installer (usually by double-clicking on the installer's icon).
      - Click through the installer's prompts accordingly. The defaults are       
        usually fine.
-2. [Download](https://www.rstudio.com/products/rstudio/download/) the latest
+2. [Download](https://posit.co/download/rstudio-desktop/) the latest
    **_installer_** version of **_RStudio Desktop_** available for your 
    operating system.
      - Run the installer (usually by double-clicking on the installer's icon).
