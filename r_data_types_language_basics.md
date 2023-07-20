@@ -401,7 +401,7 @@ mat
 
 ## Data Structures: Data Frame
 
-You can store a two dimensional matrix of data (a "table") as a data frame. This
+You can store a two dimensional collection of data (a "table") as a data frame. This
 is the most common way to work with data in R. A data frame is often constructed
 from one or more vectors, where each vector becomes a column.
 
