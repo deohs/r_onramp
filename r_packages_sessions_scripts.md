@@ -152,10 +152,9 @@ can do it all with pacman.
 
 ```r
 # Load pacman, installing if needed
-if (!require("pacman")) 
-  install.packages("pacman", repos = "http://cran.r-project.org")
+if (!require(pacman)){ install.packages("pacman") } 
 
-# Use the pacman function `p_load()` to load a list of packages
+# Use the pacman function `p_load()` to load multiple packages
 pacman::p_load(dplyr, tidyr, stringr, ggplot2)
 ```
 
