@@ -61,17 +61,9 @@ Common functions include:
 
 ```r
 # Load pacman, installing if needed
-if (!require("pacman")) 
-  install.packages("pacman", repos = "http://cran.r-project.org")
-```
+if (!require(pacman)){ install.packages("pacman") }
 
-```
-## Warning in library(package, lib.loc = lib.loc, character.only = TRUE,
-## logical.return = TRUE, : there is no package called 'pacman'
-```
-
-```r
-# Load other packages, installing as needed.
+# Load other packages, installing as needed
 pacman::p_load(dplyr, ggplot2)
 ```
 
@@ -86,7 +78,7 @@ R has many built-in datasets - let's get an air quality dataset from New York in
 
 
 ```r
-# Load the "airquality" dataset into the environment.
+# Load the "airquality" dataset into the environment
 data(airquality)
 ```
 
@@ -144,36 +136,10 @@ head(airquality, n = 3)
 
 ## Wrangle *airquality*
 
-Common data tasks are simplified with dplyr, once you learn the verbs.
-
-Let's add a variable to airquality using `mutate()`
-
-
-```r
-# Add the year of the measurements and look at the first 10 rows
-head(mutate(airquality, Year = 1973), n = 10)
-```
-
-```
-##    Ozone Solar.R Wind Temp Month Day Year
-## 1     41     190  7.4   67     5   1 1973
-## 2     36     118  8.0   72     5   2 1973
-## 3     12     149 12.6   74     5   3 1973
-## 4     18     313 11.5   62     5   4 1973
-## 5     NA      NA 14.3   56     5   5 1973
-## 6     28      NA 14.9   66     5   6 1973
-## 7     23     299  8.6   65     5   7 1973
-## 8     19      99 13.8   59     5   8 1973
-## 9      8      19 20.1   61     5   9 1973
-## 10    NA     194  8.6   69     5  10 1973
-```
-
-## Wrangle *airquality*
-
 Common data tasks are simplified with *dplyr*, once you learn the verbs.
- 
-Let's add a variable to `airquality` using `mutate()`
- 
+
+Let's add a variable to *airquality* using `mutate()`
+
 
 ```r
 # Add the year of the measurements and look at the first 10 rows
@@ -196,12 +162,12 @@ head(mutate(airquality, Year = 1973), n = 10)
 
 ## Sneak preview: Using "pipes"
  
-Alternatively, we can do the same thing with "pipes", `%>%`:
+Alternatively, we can do the same thing with "pipes," `|>`.
 
 
 ```r
 # Add the year of the measurements and look at the first 10 rows
-airquality %>% mutate(Year = 1973) %>% head(n = 10)
+airquality |> mutate(Year = 1973) |> head(n = 10)
 ```
 
 ```
@@ -222,7 +188,7 @@ Is this code with pipes more readable? Why? We'll see pipes again a little later
 
 ## Wrangle *airquality*
  
-Let's take a look at the new `airquality` dataframe with `head()`.
+Let's take a look at the new *airquality* dataframe with `head()`.
  
 
 ```r
@@ -242,9 +208,12 @@ head(airquality)
 
 What happened here? Where did the `Year` column go? 
 
-In our previous step, a dataframe printed to the console (if you entered the command at the prompt) or displayed below the code chunk (if you ran the command from the Rmarkdown document) with the new `Year` variable.
+In our previous step, a dataframe printed to the console (if you entered the
+command at the prompt) or displayed below the code chunk (if you ran the command
+from the Rmarkdown document) with the new `Year` variable.
 
-We used the `airquality` object, but since we did not make a new assignment (e.g., with `<-`), the change was not "saved" to the object in the environment.
+We used the *airquality* object, but since we did not make a new assignment
+(e.g., with `<-`), the change was not "saved" to the object in the environment.
 
 ## Wrangle *airquality*
 
@@ -273,7 +242,8 @@ Better!
 
 ## Wrangle *airquality*
 
-Now let's create a date column. We'll create a character string first to break the steps down.
+Now let's create a date column. We'll create a character string first to break
+the steps down.
 
 
 ```r
@@ -334,27 +304,41 @@ dim(airquality)
 ## [1] 31  9
 ```
 
+## The pipe operator
+
+Next, let's consider wrangling *airquality* using the pipe operator. There are
+two common pipe operators in R:
+
+* The "native" pipe operator, `|>` (starting with R version 4.1.0)
+* The *magrittr* pipe operator, `%>%`
+
+These two pipes are largely the same, but there are some
+[differences](https://www.tidyverse.org/blog/2023/04/base-vs-magrittr-pipe/) to
+be aware of. You're also likely to encounter both types of pipes.
+
+Pipes help to streamline consecutive operations to be more clear and succinct. 
+
+Pipe operators feed the output of one function into the input of the next,
+avoiding having to make multiple assignments. In the next code chunk, we'll use
+the *magrittr* pipe operator, `%>%`.
+
 ## Wrangle *airquality*
-
-Next, let's now consider using the pipe operator, `%>%`. It will help us 
-streamline these operations to be more clear and succinct. 
-
-The pipe operator feeds the output of one function into the input of the next, avoiding having to make multiple assignments.
+### with the [*magrittr*](https://magrittr.tidyverse.org/) pipe operator
 
 
 ```r
 # Reload dataset to start fresh.
 data(airquality)
 
-# Wrangle airquality with pipe operators starting with original dataframe.
+# Wrangle airquality with pipe operators starting with original dataframe
 airquality_may <- airquality %>% 
   
-  # Add year and date variables using mutate.
+  # Add year and date variables using mutate
   mutate(Year = 1973,
          Date_char = paste(Year, Month, Day, sep = "-"), 
          Date = as.Date(Date_char, format = "%Y-%m-%d")) %>% 
   
-  # Filter dataframe to the month of May.
+  # Filter dataframe to the month of May
   filter(Month == 5) %>% 
   
   # Select the variables of interest.
@@ -383,12 +367,15 @@ head(airquality_may)
 
 ## Wrangle *airquality*
 
-What if we're interested in the average ozone and temperature by month? Would we have to repeat this process for each month? *dplyr* has easy and powerful functions to perform data wrangling tasks on groups: `group_by()` and `summarise()`
+What if we're interested in the average ozone and temperature by month? Would we
+have to repeat this process for each month? *dplyr* has easy and powerful
+functions to perform data wrangling tasks on groups: `group_by()` and
+`summarise()`.
 
 
 ```r
-# Average by month, using the argument `na.rm = TRUE` to ignore the NA values.
-# If you omit `na.rm = TRUE`, then any NAs will cause the mean to be NA. 
+# Average by month, using the argument `na.rm = TRUE` to ignore the NA values
+# If you omit `na.rm = TRUE`, then any NAs will cause the mean to be NA
 airquality_by_month <- airquality %>% 
   
   # Group dataframe by month.
@@ -402,18 +389,18 @@ airquality_by_month <- airquality %>%
 
 The last argument, `.groups` specifies how to leave the grouping when the 
 operation is finished. In this case, we "keep" the grouping as it is. (This is 
-an "experimental" feature as of *dplyr* 1.0.2.)
+an "experimental" feature as of *dplyr*.)
 
 ## Wrangle *airquality*
 
 
 ```r
-# Show new dataframe.
+# Show new dataframe
 airquality_by_month
 ```
 
 ```
-## # A tibble: 5 x 3
+## # A tibble: 5 × 3
 ## # Groups:   Month [5]
 ##   Month Ozone_avg Temp_avg
 ##   <int>     <dbl>    <dbl>
@@ -427,14 +414,16 @@ airquality_by_month
 
 ## Make a plot using *ggplot2*
 
-Now let's make a simple plot so we have an example for our rendered document. The goal here is just to introduce the main plotting tool of the Tidyverse - we'll be covering *ggplot2* in more detail in the future.
+Now let's make a simple plot so we have an example for our rendered document.
+The goal here is just to introduce the main plotting tool of the Tidyverse -
+we'll be covering *ggplot2* in more detail in the future.
 
 
 ```r
-# Create a ggplot object and save it as "p".
+# Create a ggplot object and save it as "p"
 p <- ggplot(data = airquality_may) + 
   
-  # Specify the type of geometry and the aesthetic features.
+  # Specify the type of geometry and the aesthetic features
   geom_line(aes(x = Date, y = Ozone)) + 
   
   # Specify the labels.
