@@ -87,7 +87,7 @@ Example: [tidyr package index](https://cran.r-project.org/web/packages/tidyr/ind
 
 ## R Cheat Sheets
 
-Many R packages have [Cheat Sheets](https://rstudio.com/resources/cheatsheets/) 
+Many R packages have [Cheatsheets](https://posit.co/resources/cheatsheets/) 
 to help with common tasks and questions.
 
 ![](images/cheatsheet.png)
@@ -185,9 +185,9 @@ are some of our favorites.
 
 These ebooks are from the developers of the Tidyverse family of packages:
 
-* [R for Data Science](https://r4ds.had.co.nz/)
-    - by Hadley Wickham & Garrett Grolemund
-* [Advanced R](http://adv-r.had.co.nz/)
+* [R for Data Science](https://r4ds.hadley.nz/)
+    - by Hadley Wickham, Mine Çetinkaya-Rundel & Garrett Grolemund
+* [Advanced R](https://adv-r.hadley.nz/)
     - by Hadley Wickham
 
 The [UW](https://www.lib.washington.edu/) has all of these (in print and ebook 
