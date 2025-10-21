@@ -1,6 +1,6 @@
 ---
 title: "R Resources & Getting Help"
-author: "Brian High, Nancy Carmona & Chris Zuidema"
+author: "Brian High, Nancy Carmona, Chris Zuidema & Xinyuan Hao"
 date: "![CC BY-SA 4.0](images/cc_by-sa_4.png)"
 output:
   ioslides_presentation:
@@ -20,19 +20,17 @@ output:
 You will learn about:
 
 * R's Internal Help Features
-* R Package Documentation
 * Support through Online Forums
 * How to Ask for Help
-* Free Online R Courses
-* Free Online R Tutorials
-* Free R Books
+* Our Favorite Free Online R Tutorials / Courses / Books
+* Emerging Support Tools: AI-assisted R Learning
 
 ## R's Internal Help Features
 
 You can access R's internal documentation with functions like:
 
 
-```r
+``` r
 # Example                               # Description
 # ------------------------------------- # --------------------------------------
 help.start()                            # Open the top-level help index
@@ -61,27 +59,6 @@ and [Getting Help with R](https://support.rstudio.com/hc/en-us/articles/20055233
 ## The Help Tab in the Viewer Pane 
 
 ![](images/help.png)
-
-## R Package Documentation
-
-A package will usually have documentation containing one or more of the following:
-
-* index
-* a DESCRIPTION file
-* guides for functions (with examples), classes, and data
-* vignettes, including tutorials and FAQs
-* demos
-* a NEWS file
-
-The index for CRAN packages can be found using a URL like:
-
-```
-https://cran.r-project.org/web/packages/PACKAGE/index.html
-```
-
-... where PACKAGE would be replaced with the actual package name.
-
-Example: [tidyr package index](https://cran.r-project.org/web/packages/tidyr/index.html)
 
 ## R Cheat Sheets
 
@@ -153,7 +130,7 @@ See if you can get through all 15 segments of the "R Programming: The basics of 
 [Swirl Guide](https://github.com/ClaudiaBrauer/A-very-short-introduction-to-R/blob/master/documents/Using%20swirl%20to%20practise%20R.pdf)). Use the alternative version, "R Programming Alt". Install it like this:
 
 
-```r
+``` r
 install.packages("swirl")
 library(swirl)
 install_from_swirl("R Programming Alt")
@@ -198,6 +175,17 @@ obtain a free SPL [library card](http://www.spl.org/using-the-library/get-starte
     - by Jared P. Lander ( [GOOG](https://www.google.com/search?tbo=p&tbm=bks&q=intitle:%22R+for+Everyone%3A+Advanced+Analytics+and+Graphics%22&num=10&gws_rd=ssl) | [AMZN](http://www.amazon.com/dp/0321888030/?tag=5308-0610-7646) | [UW](http://alliance-primo.hosted.exlibrisgroup.com/primo_library/libweb/action/search.do?fn=search&ct=search&vid=UW&vl%28753972432UI0%29=title&vl%281UIStartWith0%29=starts+with&vl%28freeText0%29=%22R+for+Everyone%3A+Advanced+Analytics+and+Graphics%22&Submit=Search) )
 * [R in Action: Data Analysis and Graphics with R](https://www.manning.com/books/r-in-action-second-edition) 
     - by Robert Kabacoff ( [GOOG](https://www.google.com/search?tbo=p&tbm=bks&q=intitle:%22R+in+Action%3A+Data+Analysis+and+Graphics+with+R%22&num=10&gws_rd=ssl) | [AMZN](http://www.amazon.com/dp/1617291382/?tag=5308-0610-7646) | [SPL](https://seattle.bibliocommons.com/search?t=title&search_category=title&q=%22R+in+Action%3A+Data+Analysis+and+Graphics+with+R%22&commit=Search) | [UW](http://alliance-primo.hosted.exlibrisgroup.com/primo_library/libweb/action/search.do?fn=search&ct=search&vid=UW&vl%28753972432UI0%29=title&vl%281UIStartWith0%29=starts+with&vl%28freeText0%29=%22R+in+Action%3A+Data+Analysis+and+Graphics+with+R%22&Submit=Search) )
+
+## Emerging Support Tools: AI-assisted R Learning
+
+
+- *Generative AI tools* (e.g., **ChatGPT**, **Copilot**, **RStudio’s AI assistant**) can help explain errors, write snippets, or debug code.
+
+- > *Treat AI as a collaborator, not a solution.*  
+- > Always verify results before using them in your analysis.
+
+Next session: **Applications and practical R workflows.**
+
 
 ## 
 
