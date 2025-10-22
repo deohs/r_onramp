@@ -1,5 +1,5 @@
 ---
-title: "Introduction to R and R Studio"
+title: "Introduction to R and RStudio"
 author: "Brian High, Nancy Carmona & Chris Zuidema"
 date: "![CC BY-SA 4.0](images/cc_by-sa_4.png)"
 output:
@@ -17,6 +17,21 @@ output:
 suppressMessages(library(knitr))
 opts_chunk$set(tidy=FALSE, cache=TRUE, echo=TRUE, message=FALSE)
 ```
+
+## R Onramp Materials
+
+These materials (including this document) are freely available on GitHub:
+
+https://github.com/deohs/r_onramp
+
+Feel free to download a copy or even import the repository into RStudio.
+
+- File ->  New Project -> Version Control -> Git
+- Repository URL: https://github.com/deohs/r_onramp.git
+- (Create Project)
+
+Note: This procedure requires that [Git](https://git-scm.com/) is installed on 
+the system running RStudio.
 
 ## Learning Objectives
 
