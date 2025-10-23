@@ -69,7 +69,7 @@ RStudio uses the RStudio "Comprehensive R Archive Network" ("CRAN") mirror [http
 repositories can be specified.
 
 
-```r
+``` r
 # Example: install the "dplyr" package, using the default repository 
 install.packages("dplyr")
 ```
@@ -84,7 +84,7 @@ Note that the package name must be quoted.
 Next, you need to load the package into memory (RAM), using `library()`.
 
 
-```r
+``` r
 library(dplyr)
 ```
 
@@ -102,7 +102,7 @@ all of those parenthesis. Or you can use `search()`.
 Packages change, and sometimes you will want or need to upgrade (update) them by running the `update.packages()` command:
 
 
-```r
+``` r
 # Example of package update
 update.packages("dplyr")
 ```
@@ -110,14 +110,14 @@ update.packages("dplyr")
 You can upgrade all of your packages with:
 
 
-```r
+``` r
 update.packages()
 ```
 
 To uninstall (remove) package, run:
 
 
-```r
+``` r
 # Example of removing a package
 remove.packages("dplyr")
 ```
@@ -128,7 +128,7 @@ If you have installed the *tidyverse* package, you can update the various
 associated packages with the following command:
 
 
-```r
+``` r
 tidyverse::tidyverse_update(recursive = TRUE)
 ```
 
@@ -150,7 +150,7 @@ Instead of running `install.packages()` and `library()`, for each package, you
 can do it all with pacman.
 
 
-```r
+``` r
 # Load pacman, installing if needed
 if (!require(pacman)){ install.packages("pacman") } 
 
@@ -254,7 +254,7 @@ This is a "binary" (opaque) file format -- it is not to be opened with a text ed
 You can save and load data objects to and from RData files like this:
 
 
-```r
+``` r
 x <- 1
 y <- "a"
 save(x, y, file = "xy.RData")
@@ -269,7 +269,7 @@ It is generally a good idea to write data to a standard, "transparent"
 Writing to a CSV file:
 
 
-```r
+``` r
 # Get an example dataset to work with (more on this later!)
 data("iris")
 
@@ -280,7 +280,7 @@ write.csv(iris, "iris.csv", row.names = FALSE)
 Reading from a CSV file:
 
 
-```r
+``` r
 # Example of reading a csv file
 myiris <- read.csv("iris.csv", stringsAsFactors = FALSE)
 ```
@@ -321,7 +321,7 @@ A new tab should open in your Source pane "Untitled1". Lets save it as "onramp_i
 Next, we'll add some basic information using comments like our name, date and description.
 
 
-```r
+``` r
 # Author: Joe Coder <joe.coder@example.com>
 # Last updated: September 30, 2020
 #
@@ -334,7 +334,7 @@ Now, we can write executable code, commenting as we go to document what we're
 doing for ourselves and for others we share the code with.
 
 
-```r
+``` r
 # Load example data.
 data(iris)
 
@@ -357,7 +357,7 @@ head(iris)
 Next, we'll modify the dataframe. Let's add a variable that indicates where the samples were collected.
 
 
-```r
+``` r
 # Create a variable that indicates where the flowers were collected. 
 iris$country <- "canada"
 
@@ -381,7 +381,7 @@ Let's calculate some important summary statistics and store them as variables
 to the environment.
 
 
-```r
+``` r
 # Get the mean values for petal characteristics.
 petal_length_avg <- mean(iris$Petal.Length)
 petal_length_avg
@@ -391,7 +391,7 @@ petal_length_avg
 ## [1] 3.758
 ```
 
-```r
+``` r
 petal_width_avg <- mean(iris$Petal.Width)
 petal_width_avg
 ```
@@ -400,7 +400,7 @@ petal_width_avg
 ## [1] 1.199333
 ```
 
-```r
+``` r
 # Calculate the correlation between between petal length and width.
 petal_cor <- cor(x = iris$Petal.Length, y = iris$Petal.Width, method = "pearson")
 petal_cor
@@ -415,7 +415,7 @@ petal_cor
 Lastly, we can plot our findings.
 
 
-```r
+``` r
 # Plot the petal legths versus widths.
 p <- plot(x = iris$Petal.Length, y = iris$Petal.Width, 
           xlab = "Petal Length (cm)", 
@@ -433,11 +433,11 @@ You can also "source" a saved `.R` file using the `source()` function.
 
 To go line-by-line put the cursor next to a line and press "Shift" + "Enter" 
 
-* For Mac use: "CTRL" + "Return"
+* For Mac use: "command" + "return"
 
 To run a multiple lines, highlight the desired lines and press "Shift" + "Enter"
 
-* For Mac use: "CTRL" + "Return"
+* For Mac use: "command" + "return"
 
 ## 
 

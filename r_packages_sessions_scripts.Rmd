@@ -385,11 +385,11 @@ You can also "source" a saved `.R` file using the `source()` function.
 
 To go line-by-line put the cursor next to a line and press "Shift" + "Enter" 
 
-* For Mac use: "CTRL" + "Return"
+* For Mac use: "command" + "return"
 
 To run a multiple lines, highlight the desired lines and press "Shift" + "Enter"
 
-* For Mac use: "CTRL" + "Return"
+* For Mac use: "command" + "return"
 
 ## 
 
