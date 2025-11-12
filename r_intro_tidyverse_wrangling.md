@@ -59,7 +59,7 @@ Common functions include:
 * *pacman* is not a tidyverse package, but it works well with the tidyverse
  
 
-```r
+``` r
 # Load pacman, installing if needed
 if (!require(pacman)){ install.packages("pacman") }
 
@@ -77,7 +77,7 @@ This will load these packages (installing first if neccessary):
 R has many built-in datasets - let's get an air quality dataset from New York in 1973. 
 
 
-```r
+``` r
 # Load the "airquality" dataset into the environment
 data(airquality)
 ```
@@ -85,7 +85,7 @@ data(airquality)
 We can show the structure this dataset with `str()`:
 
 
-```r
+``` r
 # Show the structure of the dataset
 str(airquality)
 ```
@@ -105,7 +105,7 @@ str(airquality)
 Alternatively, you can use `class()`, `dim()`, and `head()`:
  
 
-```r
+``` r
 # Show the class and dimensions (153 rows and 6 columns) of the dataset
 class(airquality)
 ```
@@ -114,7 +114,7 @@ class(airquality)
 ## [1] "data.frame"
 ```
 
-```r
+``` r
 dim(airquality)
 ```
 
@@ -122,7 +122,7 @@ dim(airquality)
 ## [1] 153   6
 ```
 
-```r
+``` r
 # Display the first three rows of data
 head(airquality, n = 3)
 ```
@@ -141,7 +141,7 @@ Common data tasks are simplified with *dplyr*, once you learn the verbs.
 Let's add a variable to *airquality* using `mutate()`
 
 
-```r
+``` r
 # Add the year of the measurements and look at the first 10 rows
 head(mutate(airquality, Year = 1973), n = 10)
 ```
@@ -165,7 +165,7 @@ head(mutate(airquality, Year = 1973), n = 10)
 Alternatively, we can do the same thing with "pipes," `|>`.
 
 
-```r
+``` r
 # Add the year of the measurements and look at the first 10 rows
 airquality |> mutate(Year = 1973) |> head(n = 10)
 ```
@@ -191,7 +191,7 @@ Is this code with pipes more readable? Why? We'll see pipes again a little later
 Let's take a look at the new *airquality* dataframe with `head()`.
  
 
-```r
+``` r
 # Show the dataframe, looking at the first few rows
 head(airquality)
 ```
@@ -220,7 +220,7 @@ We used the *airquality* object, but since we did not make a new assignment
 Now we'll add `Year` and make a new assignment to save it to memory. 
 
 
-```r
+``` r
 # Add year to the dataframe
 airquality <- mutate(airquality, Year = 1973)
 
@@ -246,7 +246,7 @@ Now let's create a date column. We'll create a character string first to break
 the steps down.
 
 
-```r
+``` r
 # Make a character variable, then a date variable.
 airquality <- mutate(airquality, Date_char = paste(Year, Month, Day, sep = "-"))
 airquality <- mutate(airquality, Date = as.Date(Date_char, format = "%Y-%m-%d"))
@@ -264,7 +264,7 @@ head(airquality)
 ## 6    28      NA 14.9   66     5   6 1973  1973-5-6 1973-05-06
 ```
 
-```r
+``` r
 # Check the class.
 class(airquality$Date)
 ```
@@ -281,7 +281,7 @@ The filter function takes a logical condition, requiring `==` (is equal to?)
 which is different than `=` when we are assigning variables within functions.
 
 
-```r
+``` r
 airquality <- filter(airquality, Month == 5)
 head(airquality)
 ```
@@ -296,7 +296,7 @@ head(airquality)
 ## 6    28      NA 14.9   66     5   6 1973  1973-5-6 1973-05-06
 ```
 
-```r
+``` r
 dim(airquality)
 ```
 
@@ -326,7 +326,7 @@ the *magrittr* pipe operator, `%>%`.
 ### with the [*magrittr*](https://magrittr.tidyverse.org/) pipe operator
 
 
-```r
+``` r
 # Reload dataset to start fresh.
 data(airquality)
 
@@ -350,7 +350,7 @@ airquality_may <- airquality %>%
 Let's take a look.
 
 
-```r
+``` r
 # Show the dataframe.
 head(airquality_may)
 ```
@@ -373,7 +373,7 @@ functions to perform data wrangling tasks on groups: `group_by()` and
 `summarise()`.
 
 
-```r
+``` r
 # Average by month, using the argument `na.rm = TRUE` to ignore the NA values
 # If you omit `na.rm = TRUE`, then any NAs will cause the mean to be NA
 airquality_by_month <- airquality %>% 
@@ -388,13 +388,12 @@ airquality_by_month <- airquality %>%
 ```
 
 The last argument, `.groups` specifies how to leave the grouping when the 
-operation is finished. In this case, we "keep" the grouping as it is. (This is 
-an "experimental" feature as of *dplyr*.)
+operation is finished. In this case, we "keep" the grouping as it is.
 
 ## Wrangle *airquality*
 
 
-```r
+``` r
 # Show new dataframe
 airquality_by_month
 ```
@@ -419,7 +418,7 @@ The goal here is just to introduce the main plotting tool of the Tidyverse -
 we'll be covering *ggplot2* in more detail in the future.
 
 
-```r
+``` r
 # Create a ggplot object and save it as "p"
 p <- ggplot(data = airquality_may) + 
   
@@ -436,7 +435,7 @@ p <- ggplot(data = airquality_may) +
 ## Make a plot using *ggplot2*
 
 
-```r
+``` r
 # Show the plot.
 print(p)
 ```

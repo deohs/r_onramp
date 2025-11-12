@@ -260,8 +260,7 @@ airquality_by_month <- airquality %>%
 ```
 
 The last argument, `.groups` specifies how to leave the grouping when the 
-operation is finished. In this case, we "keep" the grouping as it is. (This is 
-an "experimental" feature as of *dplyr*.)
+operation is finished. In this case, we "keep" the grouping as it is.
 
 ## Wrangle *airquality*
 
