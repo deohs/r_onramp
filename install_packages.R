@@ -71,7 +71,7 @@ pkg_inst <- function(pkgs) {
 pdflatex_ver <- try(system("pdflatex -v", intern = T, wait = T), silent = T)
 pdflatex_ver <- grep("^pdfTeX", pdflatex_ver, value = T)
 if (!(exists("pdflatex_ver") & length(pdflatex_ver) > 0)) {
-  pkg_install("tinytex")
+  pkg_inst("tinytex")
   if (!dir.exists(tinytex::tinytex_root(error = F))) tinytex::install_tinytex()
 }
 
