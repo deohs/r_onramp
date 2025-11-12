@@ -61,13 +61,13 @@ Common functions include:
 
 ``` r
 # Load pacman, installing if needed
-if (!require(pacman)){ install.packages("pacman") }
+if (!requireNamespace("pacman", quietly = TRUE)) install.packages("pacman") 
 
 # Load other packages, installing as needed
 pacman::p_load(dplyr, ggplot2)
 ```
 
-This will load these packages (installing first if neccessary):
+This will load these packages (installing first if necessary):
 
 - *dplyr* for data wrangling
 - *ggplot2* for data visualization
