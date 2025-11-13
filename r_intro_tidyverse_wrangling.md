@@ -442,6 +442,17 @@ print(p)
 
 ![](r_intro_tidyverse_wrangling_files/figure-html/show_plot-1.png)<!-- -->
 
+## How AI-generated code fits in
+
+Prompt into Tidyverse pipelines by requesting something like:
+
+* “Using dplyr and pipes, clean this dataset by filtering out missing values, creating a date column, and computing monthly means.”
+* “Write a readable pipeline using %>% that adds a Year column, converts Month/Day into a Date, keeps only May, and then summarizes average Ozone.”
+
+Note: 
+
+AI can **speed up** typing, but **understanding** the pipeline is what makes you a **reliable** analyst.
+
 ## 
 
 

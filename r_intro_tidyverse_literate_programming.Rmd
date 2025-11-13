@@ -399,9 +399,16 @@ p <- ggplot(data = airquality_may) +
 print(p)
 ```
 
-## Render Markdown Document
+## How AI-generated code fits in
 
-Next, let's render the document using the "Knit" button.
+Prompt into Tidyverse pipelines by requesting something like:
+
+* “Using dplyr and pipes, clean this dataset by filtering out missing values, creating a date column, and computing monthly means.”
+* “Write a readable pipeline using %>% that adds a Year column, converts Month/Day into a Date, keeps only May, and then summarizes average Ozone.”
+
+Note: 
+
+AI can **speed up** typing, but **understanding** the pipeline is what makes you a **reliable** analyst.
 
 ## 
 
